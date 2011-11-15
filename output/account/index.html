@@ -72,7 +72,13 @@
       </table>
     </li>    
     <li>
-      <p>Example Response</p>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/invite_request?email=johnsmith@test.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
       <pre>
         <code class='json'>
 {
@@ -146,6 +152,146 @@
 {
   "message": "Account created",
   "access_token": "11.11111111.111111aaaabbbbcccccdddd000"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Forgot Password</h2>
+  <p>Send an account specific reset code to the provided email address. </p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/forgot_password
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>Account holder's email address.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Password reset email sent"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Reset Password</h2>
+  <p>Given a reset code (sent in email) and correct email address, reset an account password.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/reset_password
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>code</code></td>
+            <td>The password reset code sent by email.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>The email address for the account.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>new_password</code></td>
+            <td>The new password for the account.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Password reset"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Change Password</h2>
+  <p>Change the authenticated user's password.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/change_password
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>new_password</code></td>
+            <td>The new password for the account.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/change_password?new_password=badger42?
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Password changed"
 }
         </code>
       </pre>
