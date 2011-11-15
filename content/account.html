@@ -1,0 +1,140 @@
+--- 
+title: Account
+---
+
+<div class="api-method">
+  <h2>Account Info</h2>
+  <p>Get information about the authenticated user. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /account/info
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/account/info
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "domain_credits": 42,
+  "name": "John Smith"
+}
+        </code>
+      </pre>  
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Request Invite</h2>
+  <p>Send a Badger invitation request for the provided email address.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/invite_request
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>Email address for person requesting invite</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Example Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Ok"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Create Account</h2>
+  <p>Create a new account with Badger.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>invite_code</code></td>
+            <td>Invitation code sent by Badger.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>first_name</code></td>
+            <td>First name for account owner</td>
+          </tr>
+          <tr>
+            <td class='required'><code>last_name</code></td>
+            <td>Last name for account owner</td>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>Email address for account owner</td>
+          </tr>
+          <tr>
+            <td><code>country</code></td>
+            <td>The account owners specified country</td>
+          </tr>
+          <tr>
+            <td><code>locale</code></td>
+            <td>The account owners specified locale</td>
+          </tr>
+          <tr>
+            <td><code>gender</code></td>
+            <td>The account owners specified gender</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123
+      </code>      
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Account created",
+  "access_token": "11.11111111.111111aaaabbbbcccccdddd000"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>

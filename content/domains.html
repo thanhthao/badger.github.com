@@ -1,0 +1,389 @@
+---
+title: Domains
+---
+
+<div class="api-method">
+  <h2>Register Domain</h2>
+  <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /domains
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>name</code></td>
+            <td>The domain name being registered. If not available, the command will fail.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>registrant_contact_id</code></td>
+            <td>The id for the registrant contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>name_servers</code></td>
+            <td>The name servers for the domain.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>privacy</code></td>
+            <td>Protect whois information, or make public.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>auto_renew</code></td>
+            <td>Automatically deduct credits when the domain expires.</td>
+          </tr>
+          <tr>
+            <td><code>years</code></td>
+            <td>Number of years to register domain. Default number of years is 1. Number of credits deducted from account is equal to the number of years specified.</td>
+          </tr>
+          <tr>
+            <td><code>administrator_contact_id</code></td>
+            <td>The id for the administrative contact.</td>
+          </tr>
+          <tr>
+            <td><code>technical_contact_id</code></td>
+            <td>The id for the technical contact.</td>
+          </tr>
+          <tr>
+            <td><code>billing_contact_id</code></td>
+            <td>The id for the billing contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/domains/search?name=badger1.com&privacy=true&auto_renew=true&registrant_contact_id=1&name_servers=ns1.badger.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "name": "badger1.com",
+  "message": "Domain registered",
+  "expires_on": "2012-11-15T02:49:03Z"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Update Domain</h2>
+  <p>Update domain information with the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /domains
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td><code>registrant_contact_id</code></td>
+            <td>The id for the registrant contact.</td>
+          </tr>
+          <tr>
+            <td><code>name_servers</code></td>
+            <td>The name servers for the domain.</td>
+          </tr>
+          <tr>
+            <td><code>privacy</code></td>
+            <td>Protect whois information, or make public.</td>
+          </tr>
+          <tr>
+            <td><code>auto_renew</code></td>
+            <td>Automatically deduct credits when the domain expires.</td>
+          </tr>
+          <tr>
+            <td><code>years</code></td>
+            <td>Number of years to register domain. Default number of years is 1. Number of credits deducted from account is equal to the number of years specified.</td>
+          </tr>
+          <tr>
+            <td><code>administrator_contact_id</code></td>
+            <td>The id for the administrative contact.</td>
+          </tr>
+          <tr>
+            <td><code>technical_contact_id</code></td>
+            <td>The id for the technical contact.</td>
+          </tr>
+          <tr>
+            <td><code>billing_contact_id</code></td>
+            <td>The id for the billing contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/domains/badger1.com?privacy=false&administrator_contact_id=3&technical_contact_id=3&billing_contact_id=3
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "billing_contact": {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  },
+  "locked": true,
+  "status": "active",
+  "created_registrar": "rhino",
+  "registrant_contact": {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  },
+  "technical_contact": {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  },
+  "updated_on": "2011-11-15T03:04:01Z",
+  "whois": "The data contained in this whois database...",
+  "updated_at": "2011-11-15T03:04:01Z",
+  "auto_renew": true,
+  "registered_on": "2011-11-15T02:07:43Z",
+  "name": "corytest.com",
+  "losing_registrar": null,
+  "id": 23,
+  "name_servers": [
+    "ns1.badger.com",
+    "ns2.badger.com"
+  ],
+  "administrator_contact": {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  },
+  "created_at": "2011-11-15T02:07:43Z",
+  "privacy": false,
+  "expires_on": "2012-11-15T02:07:43Z"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Search</h2>
+  <p>Check to see if a domain is available for registration. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /domains/search
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>query</code></td>
+            <td>The domain name being searched. Note that .com and .net are automatically appended to the query.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>serial</code></td>
+            <td>A user specified serial.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/domains/search?query=badger&serial=abc123
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "serial": "fdsa",
+  "domains": [
+    [
+      "fdsa.com",
+      false
+    ],
+    [
+      "fdsa.net",
+      false
+    ]
+  ]
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Get Domains</h2>
+  <p>View all if the authenticated user's domains.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /domains
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/domains
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+[
+  {
+    "status": "active",
+    "name": "badger1.com",
+    "expires": "2015-11-03T03:07:53Z"
+  },
+  {
+    "status": "active",
+    "name": "badger2.com",
+    "expires": "2013-11-10T21:55:30Z"
+  },
+  {
+    "status": "pending_transfer_in",
+    "name": "badger3.net",
+    "expires": "2012-11-10T19:49:12Z"
+  }
+]
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Get Domain</h2>
+  <p>View a single domain for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /domains/:domain_name/
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/domains/badger1.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "billing_contact": null,
+  "locked": true,
+  "status": "active",
+  "created_registrar": "rhino",
+  "registrant_contact": null,
+  "technical_contact": null,
+  "updated_at": "2011-11-12T19:22:10Z",
+  "whois": "The data contained in this whois database is...",
+  "updated_on": "2011-11-12T19:19:38Z",
+  "auto_renew": true,
+  "registered_on": "2011-11-03T03:07:53Z",
+  "name": "badger1.com",
+  "losing_registrar": null,
+  "id": 1,
+  "name_servers": [
+      "ns1.badger.com",
+      "ns2.badger.com"
+  ],
+  "created_at": "2011-11-03T03:07:53Z",
+  "expires_on": "2012-11-03T03:07:53Z",
+  "administrator_contact": null,
+  "privacy": true
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
