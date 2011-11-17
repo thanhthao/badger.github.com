@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Badger API - Account</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <meta name="generator" content="nanoc 3.2.3">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="header-title">
+          <h1><a href="/">Badger API</a></h1>
+        </div>
+      </div>
+      <br/>
+      <div id="content">
+        <div class="api-method">
+  <h2>Account Info</h2>
+  <p>Get information about the authenticated user. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /account/info
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/account/info
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "domain_credits": 42,
+  "name": "John Smith"
+}
+        </code>
+      </pre>  
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Request Invite</h2>
+  <p>Send a Badger invitation request for the provided email address.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/invite_request
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>Email address for person requesting invite</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/invite_request?email=johnsmith@test.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Ok"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Create Account</h2>
+  <p>Create a new account with Badger.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>invite_code</code></td>
+            <td>Invitation code sent by Badger.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>first_name</code></td>
+            <td>First name for account owner</td>
+          </tr>
+          <tr>
+            <td class='required'><code>last_name</code></td>
+            <td>Last name for account owner</td>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>Email address for account owner</td>
+          </tr>
+          <tr>
+            <td><code>country</code></td>
+            <td>The account owners specified country</td>
+          </tr>
+          <tr>
+            <td><code>locale</code></td>
+            <td>The account owners specified locale</td>
+          </tr>
+          <tr>
+            <td><code>gender</code></td>
+            <td>The account owners specified gender</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123
+      </code>      
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Account created",
+  "access_token": "11.11111111.111111aaaabbbbcccccdddd000"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Forgot Password</h2>
+  <p>Send an account specific reset code to the provided email address. </p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/forgot_password
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>Account holder's email address.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Password reset email sent"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Reset Password</h2>
+  <p>Given a reset code (sent in email) and correct email address, reset an account password.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/reset_password
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>code</code></td>
+            <td>The password reset code sent by email.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>The email address for the account.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>new_password</code></td>
+            <td>The new password for the account.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Password reset"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Change Password</h2>
+  <p>Change the authenticated user's password.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/change_password
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>new_password</code></td>
+            <td>The new password for the account.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/change_password?new_password=badger42?
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Password changed"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+      </div>
+    </div>
+    <div id="sidebar">
+      <div id="sidebar-categories">
+        <ul>
+          <li><a href="/summary/">Summary</a></li>
+          <li><a href="/account/">Account</a></li>
+          <li><a href="/domains/">Domains</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">Whois</a></li>
+          <li><a href="/billing/">Billing</a></li>
+        </ul>
+      </div>
+      <br/>
+      <div id="sidebar-topics">
+      </div>
+    </div>
+  </body>
+</html>
