@@ -1,4 +1,226 @@
-{:versioni:	data{"/whois/{:default{	:pre"Ä<div class="api-method">
+{:versioni:	data{"/summary/{:default{	:pre"Ÿ<div id='summary-access'>
+  <h2>Accessing the API</h2>
+  <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
+  
+  <pre>
+    <code class='terminal'>
+$ curl -G https://api.badger.com/account/info
+
+{"message":"Invalid or missing access token"}
+    </code>
+  </pre>
+
+  <p>Oh no, we are not authorized to view this content! Most API methods require an account specific access token to use,
+  which brings us to the next topic...</p>  
+</div>
+<br/>
+<div id='summary-authentication'>
+  <h2>Authentication</h2>
+  <p>There are two ways of authenticating API calls.</p>
+
+  <p>Basic Authentication:</p>
+
+  <code class='terminal'>
+  $ curl -u "email:password" https://api.badger.com
+  </code>
+
+  <p>Access Token (sent in a custom header)</p>
+
+  <code class='terminal'>
+  $ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com
+  </code>
+
+  <p>Access Token (sent as parameter)</p>
+
+  <code class='terminal'>
+  $ curl https://api.badger.com?access_token=ACCESS_TOKEN
+  </code>
+</div>
+<br/>
+<div id='summary-pagination'>
+  <h2>Pagination</h2>
+  <p>When a request returns multiple items, they will be split across multiple pages. The default number of items per page is 30.</p>
+  <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
+  You can view further pages by using the <code>?page</code> parameter.</p>
+
+  <code class='terminal'>
+  $ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3
+  </code>
+
+  <p>The pagination information is sent in the Link header</p>
+
+  <pre>
+    <code class='json'>
+Link: [
+  {"rel":"next","url":"http://api.badger.dev/domains?page=4&per_page=10"},
+  {"rel":"last","url":"http://api.badger.dev/domains?page=8&per_page=10"},
+  {"rel":"prev","url":"http://api.badger.dev/domains?page=2&per_page=10"},
+  {"rel":"first","url":"http://api.badger.dev/domains?page=1&per_page=10"}
+]
+    </code>
+  </pre>
+</div>:	post"<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Badger.com API - Summary</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <meta name="generator" content="nanoc 3.2.3">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="header-title">
+          <h1><a href="/">Badger.com API</a></h1>
+        </div>
+      </div>
+      <br/>
+      <div id="content">
+        <div id='summary-access'>
+  <h2>Accessing the API</h2>
+  <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
+  
+  <pre>
+    <code class='terminal'>
+$ curl -G https://api.badger.com/account/info
+
+{"message":"Invalid or missing access token"}
+    </code>
+  </pre>
+
+  <p>Oh no, we are not authorized to view this content! Most API methods require an account specific access token to use,
+  which brings us to the next topic...</p>  
+</div>
+<br/>
+<div id='summary-authentication'>
+  <h2>Authentication</h2>
+  <p>There are two ways of authenticating API calls.</p>
+
+  <p>Basic Authentication:</p>
+
+  <code class='terminal'>
+  $ curl -u "email:password" https://api.badger.com
+  </code>
+
+  <p>Access Token (sent in a custom header)</p>
+
+  <code class='terminal'>
+  $ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com
+  </code>
+
+  <p>Access Token (sent as parameter)</p>
+
+  <code class='terminal'>
+  $ curl https://api.badger.com?access_token=ACCESS_TOKEN
+  </code>
+</div>
+<br/>
+<div id='summary-pagination'>
+  <h2>Pagination</h2>
+  <p>When a request returns multiple items, they will be split across multiple pages. The default number of items per page is 30.</p>
+  <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
+  You can view further pages by using the <code>?page</code> parameter.</p>
+
+  <code class='terminal'>
+  $ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3
+  </code>
+
+  <p>The pagination information is sent in the Link header</p>
+
+  <pre>
+    <code class='json'>
+Link: [
+  {"rel":"next","url":"http://api.badger.dev/domains?page=4&per_page=10"},
+  {"rel":"last","url":"http://api.badger.dev/domains?page=8&per_page=10"},
+  {"rel":"prev","url":"http://api.badger.dev/domains?page=2&per_page=10"},
+  {"rel":"first","url":"http://api.badger.dev/domains?page=1&per_page=10"}
+]
+    </code>
+  </pre>
+</div>
+      </div>
+    </div>
+    <div id="sidebar">
+      <div id="sidebar-categories">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/summary/">Summary</a></li>
+          <li><a href="/account/">Account</a></li>
+          <li><a href="/domains/">Domains</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">Whois</a></li>
+          <li><a href="/billing/">Billing</a></li>
+        </ul>
+      </div>
+      <br/>
+      <div id="sidebar-topics">
+      </div>
+    </div>
+  </body>
+</html>
+:	last@:raw"Ÿ<div id='summary-access'>
+  <h2>Accessing the API</h2>
+  <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
+  
+  <pre>
+    <code class='terminal'>
+$ curl -G https://api.badger.com/account/info
+
+{"message":"Invalid or missing access token"}
+    </code>
+  </pre>
+
+  <p>Oh no, we are not authorized to view this content! Most API methods require an account specific access token to use,
+  which brings us to the next topic...</p>  
+</div>
+<br/>
+<div id='summary-authentication'>
+  <h2>Authentication</h2>
+  <p>There are two ways of authenticating API calls.</p>
+
+  <p>Basic Authentication:</p>
+
+  <code class='terminal'>
+  $ curl -u "email:password" https://api.badger.com
+  </code>
+
+  <p>Access Token (sent in a custom header)</p>
+
+  <code class='terminal'>
+  $ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com
+  </code>
+
+  <p>Access Token (sent as parameter)</p>
+
+  <code class='terminal'>
+  $ curl https://api.badger.com?access_token=ACCESS_TOKEN
+  </code>
+</div>
+<br/>
+<div id='summary-pagination'>
+  <h2>Pagination</h2>
+  <p>When a request returns multiple items, they will be split across multiple pages. The default number of items per page is 30.</p>
+  <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
+  You can view further pages by using the <code>?page</code> parameter.</p>
+
+  <code class='terminal'>
+  $ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3
+  </code>
+
+  <p>The pagination information is sent in the Link header</p>
+
+  <pre>
+    <code class='json'>
+Link: [
+  {"rel":"next","url":"http://api.badger.dev/domains?page=4&per_page=10"},
+  {"rel":"last","url":"http://api.badger.dev/domains?page=8&per_page=10"},
+  {"rel":"prev","url":"http://api.badger.dev/domains?page=2&per_page=10"},
+  {"rel":"first","url":"http://api.badger.dev/domains?page=1&per_page=10"}
+]
+    </code>
+  </pre>
+</div>"/whois/{;{	;"Ä<div class="api-method">
   <h2>Create Contact</h2>
   <p>Create a new contact for the authenticated user.</p>
   <ul>
@@ -231,11 +453,11 @@
       </pre>
     </li>
   </ul>
-</div>:	post"ô<!DOCTYPE HTML>
+</div>;	"$<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Badger API - Whois</title>
+    <title>Badger.com API - Whois</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     <meta name="generator" content="nanoc 3.2.3">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
@@ -244,7 +466,7 @@
     <div id="main">
       <div id="header">
         <div id="header-title">
-          <h1><a href="/">Badger API</a></h1>
+          <h1><a href="/">Badger.com API</a></h1>
         </div>
       </div>
       <br/>
@@ -488,6 +710,7 @@
     <div id="sidebar">
       <div id="sidebar-categories">
         <ul>
+          <li><a href="/">Home</a></li>
           <li><a href="/summary/">Summary</a></li>
           <li><a href="/account/">Account</a></li>
           <li><a href="/domains/">Domains</a></li>
@@ -502,7 +725,8 @@
     </div>
   </body>
 </html>
-:raw"Ä<div class="api-method">
+;
+@;"Ä<div class="api-method">
   <h2>Create Contact</h2>
   <p>Create a new contact for the authenticated user.</p>
   <ul>
@@ -735,229 +959,7 @@
       </pre>
     </li>
   </ul>
-</div>:	last@"/summary/{;{	;"Ÿ<div id='summary-access'>
-  <h2>Accessing the API</h2>
-  <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
-  
-  <pre>
-    <code class='terminal'>
-$ curl -G https://api.badger.com/account/info
-
-{"message":"Invalid or missing access token"}
-    </code>
-  </pre>
-
-  <p>Oh no, we are not authorized to view this content! Most API methods require an account specific access token to use,
-  which brings us to the next topic...</p>  
-</div>
-<br/>
-<div id='summary-authentication'>
-  <h2>Authentication</h2>
-  <p>There are two ways of authenticating API calls.</p>
-
-  <p>Basic Authentication:</p>
-
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com
-  </code>
-
-  <p>Access Token (sent in a custom header)</p>
-
-  <code class='terminal'>
-  $ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com
-  </code>
-
-  <p>Access Token (sent as parameter)</p>
-
-  <code class='terminal'>
-  $ curl https://api.badger.com?access_token=ACCESS_TOKEN
-  </code>
-</div>
-<br/>
-<div id='summary-pagination'>
-  <h2>Pagination</h2>
-  <p>When a request returns multiple items, they will be split across multiple pages. The default number of items per page is 30.</p>
-  <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
-  You can view further pages by using the <code>?page</code> parameter.</p>
-
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3
-  </code>
-
-  <p>The pagination information is sent in the Link header</p>
-
-  <pre>
-    <code class='json'>
-Link: [
-  {"rel":"next","url":"http://api.badger.dev/domains?page=4&per_page=10"},
-  {"rel":"last","url":"http://api.badger.dev/domains?page=8&per_page=10"},
-  {"rel":"prev","url":"http://api.badger.dev/domains?page=2&per_page=10"},
-  {"rel":"first","url":"http://api.badger.dev/domains?page=1&per_page=10"}
-]
-    </code>
-  </pre>
-</div>;	"Ñ<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Badger API - Summary</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.2.3">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <div id="main">
-      <div id="header">
-        <div id="header-title">
-          <h1><a href="/">Badger API</a></h1>
-        </div>
-      </div>
-      <br/>
-      <div id="content">
-        <div id='summary-access'>
-  <h2>Accessing the API</h2>
-  <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
-  
-  <pre>
-    <code class='terminal'>
-$ curl -G https://api.badger.com/account/info
-
-{"message":"Invalid or missing access token"}
-    </code>
-  </pre>
-
-  <p>Oh no, we are not authorized to view this content! Most API methods require an account specific access token to use,
-  which brings us to the next topic...</p>  
-</div>
-<br/>
-<div id='summary-authentication'>
-  <h2>Authentication</h2>
-  <p>There are two ways of authenticating API calls.</p>
-
-  <p>Basic Authentication:</p>
-
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com
-  </code>
-
-  <p>Access Token (sent in a custom header)</p>
-
-  <code class='terminal'>
-  $ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com
-  </code>
-
-  <p>Access Token (sent as parameter)</p>
-
-  <code class='terminal'>
-  $ curl https://api.badger.com?access_token=ACCESS_TOKEN
-  </code>
-</div>
-<br/>
-<div id='summary-pagination'>
-  <h2>Pagination</h2>
-  <p>When a request returns multiple items, they will be split across multiple pages. The default number of items per page is 30.</p>
-  <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
-  You can view further pages by using the <code>?page</code> parameter.</p>
-
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3
-  </code>
-
-  <p>The pagination information is sent in the Link header</p>
-
-  <pre>
-    <code class='json'>
-Link: [
-  {"rel":"next","url":"http://api.badger.dev/domains?page=4&per_page=10"},
-  {"rel":"last","url":"http://api.badger.dev/domains?page=8&per_page=10"},
-  {"rel":"prev","url":"http://api.badger.dev/domains?page=2&per_page=10"},
-  {"rel":"first","url":"http://api.badger.dev/domains?page=1&per_page=10"}
-]
-    </code>
-  </pre>
-</div>
-      </div>
-    </div>
-    <div id="sidebar">
-      <div id="sidebar-categories">
-        <ul>
-          <li><a href="/summary/">Summary</a></li>
-          <li><a href="/account/">Account</a></li>
-          <li><a href="/domains/">Domains</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">Whois</a></li>
-          <li><a href="/billing/">Billing</a></li>
-        </ul>
-      </div>
-      <br/>
-      <div id="sidebar-topics">
-      </div>
-    </div>
-  </body>
-</html>
-;
-"Ÿ<div id='summary-access'>
-  <h2>Accessing the API</h2>
-  <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
-  
-  <pre>
-    <code class='terminal'>
-$ curl -G https://api.badger.com/account/info
-
-{"message":"Invalid or missing access token"}
-    </code>
-  </pre>
-
-  <p>Oh no, we are not authorized to view this content! Most API methods require an account specific access token to use,
-  which brings us to the next topic...</p>  
-</div>
-<br/>
-<div id='summary-authentication'>
-  <h2>Authentication</h2>
-  <p>There are two ways of authenticating API calls.</p>
-
-  <p>Basic Authentication:</p>
-
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com
-  </code>
-
-  <p>Access Token (sent in a custom header)</p>
-
-  <code class='terminal'>
-  $ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com
-  </code>
-
-  <p>Access Token (sent as parameter)</p>
-
-  <code class='terminal'>
-  $ curl https://api.badger.com?access_token=ACCESS_TOKEN
-  </code>
-</div>
-<br/>
-<div id='summary-pagination'>
-  <h2>Pagination</h2>
-  <p>When a request returns multiple items, they will be split across multiple pages. The default number of items per page is 30.</p>
-  <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
-  You can view further pages by using the <code>?page</code> parameter.</p>
-
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3
-  </code>
-
-  <p>The pagination information is sent in the Link header</p>
-
-  <pre>
-    <code class='json'>
-Link: [
-  {"rel":"next","url":"http://api.badger.dev/domains?page=4&per_page=10"},
-  {"rel":"last","url":"http://api.badger.dev/domains?page=8&per_page=10"},
-  {"rel":"prev","url":"http://api.badger.dev/domains?page=2&per_page=10"},
-  {"rel":"first","url":"http://api.badger.dev/domains?page=1&per_page=10"}
-]
-    </code>
-  </pre>
-</div>;@"
+</div>"
 /dns/{;{	;"é<div class="api-method">
   <h2>Get Records</h2>
   <p>View the user created DNS records for a domain. Requires authentication.</p>
@@ -1087,11 +1089,11 @@ Link: [
       </pre>
     </li>
   </ul>
-</div>;	"<!DOCTYPE HTML>
+</div>;	"G<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Badger API - DNS</title>
+    <title>Badger.com API - DNS</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     <meta name="generator" content="nanoc 3.2.3">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
@@ -1100,7 +1102,7 @@ Link: [
     <div id="main">
       <div id="header">
         <div id="header-title">
-          <h1><a href="/">Badger API</a></h1>
+          <h1><a href="/">Badger.com API</a></h1>
         </div>
       </div>
       <br/>
@@ -1240,6 +1242,7 @@ Link: [
     <div id="sidebar">
       <div id="sidebar-categories">
         <ul>
+          <li><a href="/">Home</a></li>
           <li><a href="/summary/">Summary</a></li>
           <li><a href="/account/">Account</a></li>
           <li><a href="/domains/">Domains</a></li>
@@ -1255,7 +1258,7 @@ Link: [
   </body>
 </html>
 ;
-"é<div class="api-method">
+@;"é<div class="api-method">
   <h2>Get Records</h2>
   <p>View the user created DNS records for a domain. Requires authentication.</p>
   <ul>
@@ -1384,7 +1387,53 @@ Link: [
       </pre>
     </li>
   </ul>
-</div>;@"/api_docs/{;{	;"-<h1>Welcome to the Badger API Docs!</h1>;	"e<!DOCTYPE HTML>
+</div>"/{;{	;"<h2>Welcome!</h2>
+<p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
+<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>;	"s<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Badger.com API - Home</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    <meta name="generator" content="nanoc 3.2.3">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="header-title">
+          <h1><a href="/">Badger.com API</a></h1>
+        </div>
+      </div>
+      <br/>
+      <div id="content">
+        <h2>Welcome!</h2>
+<p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
+<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>
+      </div>
+    </div>
+    <div id="sidebar">
+      <div id="sidebar-categories">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/summary/">Summary</a></li>
+          <li><a href="/account/">Account</a></li>
+          <li><a href="/domains/">Domains</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">Whois</a></li>
+          <li><a href="/billing/">Billing</a></li>
+        </ul>
+      </div>
+      <br/>
+      <div id="sidebar-topics">
+      </div>
+    </div>
+  </body>
+</html>
+;
+@;"<h2>Welcome!</h2>
+<p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
+<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>"/api_docs/{;{	;"-<h1>Welcome to the Badger API Docs!</h1>;	"e<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1409,64 +1458,7 @@ Link: [
   </body>
 </html>
 ;
-"-<h1>Welcome to the Badger API Docs!</h1>;@"/{;{	;"á<h2>Welcome!</h2>
-<p>Select a topic to get started, or look at the Summary for basic information about the API.</p>
-
-<h2>Public Repositories</h2>
-<ul>
-  <li><a href="https://github.com/badger/frontend">frontend</a></li>
-</ul>;	"<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Badger API - Home</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.2.3">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <div id="main">
-      <div id="header">
-        <div id="header-title">
-          <h1><a href="/">Badger API</a></h1>
-        </div>
-      </div>
-      <br/>
-      <div id="content">
-        <h2>Welcome!</h2>
-<p>Select a topic to get started, or look at the Summary for basic information about the API.</p>
-
-<h2>Public Repositories</h2>
-<ul>
-  <li><a href="https://github.com/badger/frontend">frontend</a></li>
-</ul>
-      </div>
-    </div>
-    <div id="sidebar">
-      <div id="sidebar-categories">
-        <ul>
-          <li><a href="/summary/">Summary</a></li>
-          <li><a href="/account/">Account</a></li>
-          <li><a href="/domains/">Domains</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">Whois</a></li>
-          <li><a href="/billing/">Billing</a></li>
-        </ul>
-      </div>
-      <br/>
-      <div id="sidebar-topics">
-      </div>
-    </div>
-  </body>
-</html>
-;
-"á<h2>Welcome!</h2>
-<p>Select a topic to get started, or look at the Summary for basic information about the API.</p>
-
-<h2>Public Repositories</h2>
-<ul>
-  <li><a href="https://github.com/badger/frontend">frontend</a></li>
-</ul>;@#"/billing/{;{	;"<div class="api-method">
+@#;"-<h1>Welcome to the Badger API Docs!</h1>"/billing/{;{	;"<div class="api-method">
   <h2>Get Payment Methods</h2>
   <p>View all stored payment methods for the authenticated user.</p>
   <ul>
@@ -1663,11 +1655,11 @@ Link: [
       </pre>
     </li>
   </ul>
-</div>;	"F<!DOCTYPE HTML>
+</div>;	"v<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Badger API - Billing</title>
+    <title>Badger.com API - Billing</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     <meta name="generator" content="nanoc 3.2.3">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
@@ -1676,7 +1668,7 @@ Link: [
     <div id="main">
       <div id="header">
         <div id="header-title">
-          <h1><a href="/">Badger API</a></h1>
+          <h1><a href="/">Badger.com API</a></h1>
         </div>
       </div>
       <br/>
@@ -1884,6 +1876,7 @@ Link: [
     <div id="sidebar">
       <div id="sidebar-categories">
         <ul>
+          <li><a href="/">Home</a></li>
           <li><a href="/summary/">Summary</a></li>
           <li><a href="/account/">Account</a></li>
           <li><a href="/domains/">Domains</a></li>
@@ -1898,8 +1891,7 @@ Link: [
     </div>
   </body>
 </html>
-;
-"<div class="api-method">
+;"<div class="api-method">
   <h2>Get Payment Methods</h2>
   <p>View all stored payment methods for the authenticated user.</p>
   <ul>
@@ -2096,7 +2088,8 @@ Link: [
       </pre>
     </li>
   </ul>
-</div>;@)"/contacts/{;{	;" ;	"0<!DOCTYPE HTML>
+</div>;
+@)"/contacts/{;{	;" ;	"0<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2135,7 +2128,7 @@ Link: [
   </body>
 </html>
 ;
-" ;@/"/stylesheet/{;{;"@* {
+@/;" "/stylesheet/{;{;"@* {
   margin: 0;
   padding: 0;
 
@@ -2706,11 +2699,11 @@ a:hover {
       </pre>
     </li>
   </ul>
-</div>;	"1<!DOCTYPE HTML>
+</div>;	"B1<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Badger API - Domains</title>
+    <title>Badger.com API - Domains</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     <meta name="generator" content="nanoc 3.2.3">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
@@ -2719,7 +2712,7 @@ a:hover {
     <div id="main">
       <div id="header">
         <div id="header-title">
-          <h1><a href="/">Badger API</a></h1>
+          <h1><a href="/">Badger.com API</a></h1>
         </div>
       </div>
       <br/>
@@ -3172,6 +3165,7 @@ a:hover {
     <div id="sidebar">
       <div id="sidebar-categories">
         <ul>
+          <li><a href="/">Home</a></li>
           <li><a href="/summary/">Summary</a></li>
           <li><a href="/account/">Account</a></li>
           <li><a href="/domains/">Domains</a></li>
@@ -3186,8 +3180,7 @@ a:hover {
     </div>
   </body>
 </html>
-;
-"à,<div class="api-method">
+;"à,<div class="api-method">
   <h2>Register Domain</h2>
   <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account.</p>
   <ul>
@@ -3629,7 +3622,8 @@ a:hover {
       </pre>
     </li>
   </ul>
-</div>;@9"/account/{;{	;"H<div class="api-method">
+</div>;
+@9"/account/{;{	;"H<div class="api-method">
   <h2>Account Info</h2>
   <p>Get information about the authenticated user. Requires authentication.</p>
   <ul>
@@ -3910,11 +3904,11 @@ a:hover {
       </pre>
     </li>
   </ul>
-</div>;	"z<!DOCTYPE HTML>
+</div>;	"ª<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Badger API - Account</title>
+    <title>Badger.com API - Account</title>
     <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     <meta name="generator" content="nanoc 3.2.3">    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
@@ -3923,7 +3917,7 @@ a:hover {
     <div id="main">
       <div id="header">
         <div id="header-title">
-          <h1><a href="/">Badger API</a></h1>
+          <h1><a href="/">Badger.com API</a></h1>
         </div>
       </div>
       <br/>
@@ -4215,6 +4209,7 @@ a:hover {
     <div id="sidebar">
       <div id="sidebar-categories">
         <ul>
+          <li><a href="/">Home</a></li>
           <li><a href="/summary/">Summary</a></li>
           <li><a href="/account/">Account</a></li>
           <li><a href="/domains/">Domains</a></li>
@@ -4230,7 +4225,7 @@ a:hover {
   </body>
 </html>
 ;
-"H<div class="api-method">
+@?;"H<div class="api-method">
   <h2>Account Info</h2>
   <p>Get information about the authenticated user. Requires authentication.</p>
   <ul>
@@ -4511,4 +4506,4 @@ a:hover {
       </pre>
     </li>
   </ul>
-</div>;@?
+</div>
