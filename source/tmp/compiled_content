@@ -1,4 +1,744 @@
-{:versioni:	data{"/summary/{:default{	:pre"Ÿ<div id='summary-access'>
+{:	data{"/whois/{:default{	:pre"Ä<div class="api-method">
+  <h2>Create Contact</h2>
+  <p>Create a new contact for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/contacts
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>first_name</code></td>
+            <td>The first name for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>last_name</code></td>
+            <td>The last name for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>organization</code></td>
+            <td>The organization that the contact belongs to.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>phone</code></td>
+            <td>The phone number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>fax</code></td>
+            <td>The fax number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>email</code></td>
+            <td>The email address for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>address</code></td>
+            <td>The street address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>address2</code></td>
+            <td>The extended address for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>city</code></td>
+            <td>The city for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>state</code></td>
+            <td>The state for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>zip</code></td>
+            <td>The five digit postal code for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>country</code></td>
+            <td>The two letter alphanumeric country name for the contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/account/contacts?first_name=John&last_name=Smith&phone=1112223456&address=123%20Fake%20Street&city=San%20Francisco&state=CA&zip=12345&country=US
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Contact created"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Update Contact</h2>
+  <p>Update one of the authenticated user's contacts.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        PUT /account/contacts/:contact_id
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td><code>first_name</code></td>
+            <td>The first name for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>last_name</code></td>
+            <td>The last name for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>organization</code></td>
+            <td>The organization that the contact belongs to.</td>
+          </tr>
+          <tr>
+            <td><code>phone</code></td>
+            <td>The phone number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>fax</code></td>
+            <td>The fax number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>email</code></td>
+            <td>The email address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>address</code></td>
+            <td>The street address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>address2</code></td>
+            <td>The extended address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>city</code></td>
+            <td>The city for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>state</code></td>
+            <td>The state for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>zip</code></td>
+            <td>The five digit postal code for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>country</code></td>
+            <td>The two letter alphanumeric country name for the contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        PUT https://api.badger.com/account/contacts/1?first_name=Isaac&last_name=Newton&email=gravity_is_awesome@gmail.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "zip": "12345",
+  "country": "US",
+  "fax": "",
+  "city": "San Francisco",
+  "last_name": "Newton",
+  "organization": "",
+  "state": "CA",
+  "id": 3,
+  "label": null,
+  "address2": "",
+  "phone": "1112223456",
+  "email": "gravity_is_awesome@gmail.com",
+  "created_at": "2011-11-11T22:38:28Z",
+  "first_name": "Isaac",
+  "address": "123 Fake Street"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Get Contacts</h2>
+  <p>Get all contacts for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /account/contacts
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/account/contacts
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+[
+  {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  }
+]
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>:raw"Ä<div class="api-method">
+  <h2>Create Contact</h2>
+  <p>Create a new contact for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/contacts
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>first_name</code></td>
+            <td>The first name for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>last_name</code></td>
+            <td>The last name for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>organization</code></td>
+            <td>The organization that the contact belongs to.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>phone</code></td>
+            <td>The phone number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>fax</code></td>
+            <td>The fax number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>email</code></td>
+            <td>The email address for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>address</code></td>
+            <td>The street address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>address2</code></td>
+            <td>The extended address for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>city</code></td>
+            <td>The city for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>state</code></td>
+            <td>The state for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>zip</code></td>
+            <td>The five digit postal code for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>country</code></td>
+            <td>The two letter alphanumeric country name for the contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/account/contacts?first_name=John&last_name=Smith&phone=1112223456&address=123%20Fake%20Street&city=San%20Francisco&state=CA&zip=12345&country=US
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Contact created"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Update Contact</h2>
+  <p>Update one of the authenticated user's contacts.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        PUT /account/contacts/:contact_id
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td><code>first_name</code></td>
+            <td>The first name for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>last_name</code></td>
+            <td>The last name for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>organization</code></td>
+            <td>The organization that the contact belongs to.</td>
+          </tr>
+          <tr>
+            <td><code>phone</code></td>
+            <td>The phone number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>fax</code></td>
+            <td>The fax number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>email</code></td>
+            <td>The email address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>address</code></td>
+            <td>The street address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>address2</code></td>
+            <td>The extended address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>city</code></td>
+            <td>The city for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>state</code></td>
+            <td>The state for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>zip</code></td>
+            <td>The five digit postal code for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>country</code></td>
+            <td>The two letter alphanumeric country name for the contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        PUT https://api.badger.com/account/contacts/1?first_name=Isaac&last_name=Newton&email=gravity_is_awesome@gmail.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "zip": "12345",
+  "country": "US",
+  "fax": "",
+  "city": "San Francisco",
+  "last_name": "Newton",
+  "organization": "",
+  "state": "CA",
+  "id": 3,
+  "label": null,
+  "address2": "",
+  "phone": "1112223456",
+  "email": "gravity_is_awesome@gmail.com",
+  "created_at": "2011-11-11T22:38:28Z",
+  "first_name": "Isaac",
+  "address": "123 Fake Street"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Get Contacts</h2>
+  <p>Get all contacts for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /account/contacts
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/account/contacts
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+[
+  {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  }
+]
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>:	post"E<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Badger.com API - Whois</title>
+
+  <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  <meta name="generator" content="nanoc 3.2.3">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="wrapper" style="display: block; ">
+    <div id="header">
+      <h1 id="logo">
+        <a href="#">api.badger.com docs</a>
+      </h1>
+    </div>
+    <div id="main">
+      <div id="sidebar">
+        <form id="form-search" style="height: auto">
+          <!-- <input type="text" id="form-search-input" value="" placeholder="Start typing..."> -->
+        </form>
+        <ul id="menu">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/summary/">SUMMARY</a></li>
+          <li><a href="/account/">ACCOUNT</a></li>
+          <li><a href="/domains/">DOMAINS</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">WHOIS</a></li>
+          <li><a href="/billing/">BILLING</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <div class="api-method">
+  <h2>Create Contact</h2>
+  <p>Create a new contact for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/contacts
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>first_name</code></td>
+            <td>The first name for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>last_name</code></td>
+            <td>The last name for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>organization</code></td>
+            <td>The organization that the contact belongs to.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>phone</code></td>
+            <td>The phone number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>fax</code></td>
+            <td>The fax number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>email</code></td>
+            <td>The email address for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>address</code></td>
+            <td>The street address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>address2</code></td>
+            <td>The extended address for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>city</code></td>
+            <td>The city for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>state</code></td>
+            <td>The state for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>zip</code></td>
+            <td>The five digit postal code for the contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>country</code></td>
+            <td>The two letter alphanumeric country name for the contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/account/contacts?first_name=John&last_name=Smith&phone=1112223456&address=123%20Fake%20Street&city=San%20Francisco&state=CA&zip=12345&country=US
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Contact created"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Update Contact</h2>
+  <p>Update one of the authenticated user's contacts.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        PUT /account/contacts/:contact_id
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td><code>first_name</code></td>
+            <td>The first name for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>last_name</code></td>
+            <td>The last name for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>organization</code></td>
+            <td>The organization that the contact belongs to.</td>
+          </tr>
+          <tr>
+            <td><code>phone</code></td>
+            <td>The phone number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>fax</code></td>
+            <td>The fax number for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>email</code></td>
+            <td>The email address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>address</code></td>
+            <td>The street address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>address2</code></td>
+            <td>The extended address for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>city</code></td>
+            <td>The city for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>state</code></td>
+            <td>The state for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>zip</code></td>
+            <td>The five digit postal code for the contact.</td>
+          </tr>
+          <tr>
+            <td><code>country</code></td>
+            <td>The two letter alphanumeric country name for the contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        PUT https://api.badger.com/account/contacts/1?first_name=Isaac&last_name=Newton&email=gravity_is_awesome@gmail.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "zip": "12345",
+  "country": "US",
+  "fax": "",
+  "city": "San Francisco",
+  "last_name": "Newton",
+  "organization": "",
+  "state": "CA",
+  "id": 3,
+  "label": null,
+  "address2": "",
+  "phone": "1112223456",
+  "email": "gravity_is_awesome@gmail.com",
+  "created_at": "2011-11-11T22:38:28Z",
+  "first_name": "Isaac",
+  "address": "123 Fake Street"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Get Contacts</h2>
+  <p>Get all contacts for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /account/contacts
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/account/contacts
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+[
+  {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  }
+]
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+  </div>
+</body>
+</html>
+:	last@"/summary/{;{	;"Ÿ<div id='summary-access'>
   <h2>Accessing the API</h2>
   <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
   
@@ -59,23 +799,100 @@ Link: [
 ]
     </code>
   </pre>
-</div>:	post"<!DOCTYPE HTML>
+</div>;"Ÿ<div id='summary-access'>
+  <h2>Accessing the API</h2>
+  <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
+  
+  <pre>
+    <code class='terminal'>
+$ curl -G https://api.badger.com/account/info
+
+{"message":"Invalid or missing access token"}
+    </code>
+  </pre>
+
+  <p>Oh no, we are not authorized to view this content! Most API methods require an account specific access token to use,
+  which brings us to the next topic...</p>  
+</div>
+<br/>
+<div id='summary-authentication'>
+  <h2>Authentication</h2>
+  <p>There are two ways of authenticating API calls.</p>
+
+  <p>Basic Authentication:</p>
+
+  <code class='terminal'>
+  $ curl -u "email:password" https://api.badger.com
+  </code>
+
+  <p>Access Token (sent in a custom header)</p>
+
+  <code class='terminal'>
+  $ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com
+  </code>
+
+  <p>Access Token (sent as parameter)</p>
+
+  <code class='terminal'>
+  $ curl https://api.badger.com?access_token=ACCESS_TOKEN
+  </code>
+</div>
+<br/>
+<div id='summary-pagination'>
+  <h2>Pagination</h2>
+  <p>When a request returns multiple items, they will be split across multiple pages. The default number of items per page is 30.</p>
+  <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
+  You can view further pages by using the <code>?page</code> parameter.</p>
+
+  <code class='terminal'>
+  $ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3
+  </code>
+
+  <p>The pagination information is sent in the Link header</p>
+
+  <pre>
+    <code class='json'>
+Link: [
+  {"rel":"next","url":"http://api.badger.dev/domains?page=4&per_page=10"},
+  {"rel":"last","url":"http://api.badger.dev/domains?page=8&per_page=10"},
+  {"rel":"prev","url":"http://api.badger.dev/domains?page=2&per_page=10"},
+  {"rel":"first","url":"http://api.badger.dev/domains?page=1&per_page=10"}
+]
+    </code>
+  </pre>
+</div>;	""<!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Badger.com API - Summary</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.2.3">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Badger.com API - Summary</title>
+
+  <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  <meta name="generator" content="nanoc 3.2.3">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="wrapper" style="display: block; ">
+    <div id="header">
+      <h1 id="logo">
+        <a href="#">api.badger.com docs</a>
+      </h1>
+    </div>
     <div id="main">
-      <div id="header">
-        <div id="header-title">
-          <h1><a href="/">Badger.com API</a></h1>
-        </div>
+      <div id="sidebar">
+        <form id="form-search" style="height: auto">
+          <!-- <input type="text" id="form-search-input" value="" placeholder="Start typing..."> -->
+        </form>
+        <ul id="menu">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/summary/">SUMMARY</a></li>
+          <li><a href="/account/">ACCOUNT</a></li>
+          <li><a href="/domains/">DOMAINS</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">WHOIS</a></li>
+          <li><a href="/billing/">BILLING</a></li>
+        </ul>
       </div>
-      <br/>
       <div id="content">
         <div id='summary-access'>
   <h2>Accessing the API</h2>
@@ -140,827 +957,14 @@ Link: [
   </pre>
 </div>
       </div>
+      <div style="clear: both"></div>
     </div>
-    <div id="sidebar">
-      <div id="sidebar-categories">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/summary/">Summary</a></li>
-          <li><a href="/account/">Account</a></li>
-          <li><a href="/domains/">Domains</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">Whois</a></li>
-          <li><a href="/billing/">Billing</a></li>
-        </ul>
-      </div>
-      <br/>
-      <div id="sidebar-topics">
-      </div>
-    </div>
-  </body>
-</html>
-:	last@:raw"Ÿ<div id='summary-access'>
-  <h2>Accessing the API</h2>
-  <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
-  
-  <pre>
-    <code class='terminal'>
-$ curl -G https://api.badger.com/account/info
-
-{"message":"Invalid or missing access token"}
-    </code>
-  </pre>
-
-  <p>Oh no, we are not authorized to view this content! Most API methods require an account specific access token to use,
-  which brings us to the next topic...</p>  
-</div>
-<br/>
-<div id='summary-authentication'>
-  <h2>Authentication</h2>
-  <p>There are two ways of authenticating API calls.</p>
-
-  <p>Basic Authentication:</p>
-
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com
-  </code>
-
-  <p>Access Token (sent in a custom header)</p>
-
-  <code class='terminal'>
-  $ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com
-  </code>
-
-  <p>Access Token (sent as parameter)</p>
-
-  <code class='terminal'>
-  $ curl https://api.badger.com?access_token=ACCESS_TOKEN
-  </code>
-</div>
-<br/>
-<div id='summary-pagination'>
-  <h2>Pagination</h2>
-  <p>When a request returns multiple items, they will be split across multiple pages. The default number of items per page is 30.</p>
-  <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
-  You can view further pages by using the <code>?page</code> parameter.</p>
-
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3
-  </code>
-
-  <p>The pagination information is sent in the Link header</p>
-
-  <pre>
-    <code class='json'>
-Link: [
-  {"rel":"next","url":"http://api.badger.dev/domains?page=4&per_page=10"},
-  {"rel":"last","url":"http://api.badger.dev/domains?page=8&per_page=10"},
-  {"rel":"prev","url":"http://api.badger.dev/domains?page=2&per_page=10"},
-  {"rel":"first","url":"http://api.badger.dev/domains?page=1&per_page=10"}
-]
-    </code>
-  </pre>
-</div>"/whois/{;{	;"Ä<div class="api-method">
-  <h2>Create Contact</h2>
-  <p>Create a new contact for the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /account/contacts
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>first_name</code></td>
-            <td>The first name for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>last_name</code></td>
-            <td>The last name for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>organization</code></td>
-            <td>The organization that the contact belongs to.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>phone</code></td>
-            <td>The phone number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>fax</code></td>
-            <td>The fax number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>email</code></td>
-            <td>The email address for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>address</code></td>
-            <td>The street address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>address2</code></td>
-            <td>The extended address for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>city</code></td>
-            <td>The city for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>state</code></td>
-            <td>The state for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>zip</code></td>
-            <td>The five digit postal code for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>country</code></td>
-            <td>The two letter alphanumeric country name for the contact.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account/contacts?first_name=John&last_name=Smith&phone=1112223456&address=123%20Fake%20Street&city=San%20Francisco&state=CA&zip=12345&country=US
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Contact created"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Update Contact</h2>
-  <p>Update one of the authenticated user's contacts.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        PUT /account/contacts/:contact_id
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td><code>first_name</code></td>
-            <td>The first name for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>last_name</code></td>
-            <td>The last name for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>organization</code></td>
-            <td>The organization that the contact belongs to.</td>
-          </tr>
-          <tr>
-            <td><code>phone</code></td>
-            <td>The phone number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>fax</code></td>
-            <td>The fax number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>email</code></td>
-            <td>The email address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>address</code></td>
-            <td>The street address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>address2</code></td>
-            <td>The extended address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>city</code></td>
-            <td>The city for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>state</code></td>
-            <td>The state for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>zip</code></td>
-            <td>The five digit postal code for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>country</code></td>
-            <td>The two letter alphanumeric country name for the contact.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        PUT https://api.badger.com/account/contacts/1?first_name=Isaac&last_name=Newton&email=gravity_is_awesome@gmail.com
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "zip": "12345",
-  "country": "US",
-  "fax": "",
-  "city": "San Francisco",
-  "last_name": "Newton",
-  "organization": "",
-  "state": "CA",
-  "id": 3,
-  "label": null,
-  "address2": "",
-  "phone": "1112223456",
-  "email": "gravity_is_awesome@gmail.com",
-  "created_at": "2011-11-11T22:38:28Z",
-  "first_name": "Isaac",
-  "address": "123 Fake Street"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Get Contacts</h2>
-  <p>Get all contacts for the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /account/contacts
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/contacts
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
-  {
-    "zip": "12345",
-    "country": "US",
-    "fax": "",
-    "city": "San Francisco",
-    "last_name": "Smith",
-    "organization": "",
-    "state": "CA",
-    "id": 3,
-    "label": null,
-    "address2": "",
-    "phone": "1112223456",
-    "email": "johnsmith@test.com",
-    "created_at": "2011-11-11T22:38:28Z",
-    "first_name": "John",
-    "address": "123 Fake Street"
-  }
-]
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>;	"$<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Badger.com API - Whois</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.2.3">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <div id="main">
-      <div id="header">
-        <div id="header-title">
-          <h1><a href="/">Badger.com API</a></h1>
-        </div>
-      </div>
-      <br/>
-      <div id="content">
-        <div class="api-method">
-  <h2>Create Contact</h2>
-  <p>Create a new contact for the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /account/contacts
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>first_name</code></td>
-            <td>The first name for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>last_name</code></td>
-            <td>The last name for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>organization</code></td>
-            <td>The organization that the contact belongs to.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>phone</code></td>
-            <td>The phone number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>fax</code></td>
-            <td>The fax number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>email</code></td>
-            <td>The email address for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>address</code></td>
-            <td>The street address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>address2</code></td>
-            <td>The extended address for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>city</code></td>
-            <td>The city for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>state</code></td>
-            <td>The state for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>zip</code></td>
-            <td>The five digit postal code for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>country</code></td>
-            <td>The two letter alphanumeric country name for the contact.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account/contacts?first_name=John&last_name=Smith&phone=1112223456&address=123%20Fake%20Street&city=San%20Francisco&state=CA&zip=12345&country=US
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Contact created"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Update Contact</h2>
-  <p>Update one of the authenticated user's contacts.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        PUT /account/contacts/:contact_id
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td><code>first_name</code></td>
-            <td>The first name for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>last_name</code></td>
-            <td>The last name for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>organization</code></td>
-            <td>The organization that the contact belongs to.</td>
-          </tr>
-          <tr>
-            <td><code>phone</code></td>
-            <td>The phone number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>fax</code></td>
-            <td>The fax number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>email</code></td>
-            <td>The email address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>address</code></td>
-            <td>The street address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>address2</code></td>
-            <td>The extended address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>city</code></td>
-            <td>The city for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>state</code></td>
-            <td>The state for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>zip</code></td>
-            <td>The five digit postal code for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>country</code></td>
-            <td>The two letter alphanumeric country name for the contact.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        PUT https://api.badger.com/account/contacts/1?first_name=Isaac&last_name=Newton&email=gravity_is_awesome@gmail.com
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "zip": "12345",
-  "country": "US",
-  "fax": "",
-  "city": "San Francisco",
-  "last_name": "Newton",
-  "organization": "",
-  "state": "CA",
-  "id": 3,
-  "label": null,
-  "address2": "",
-  "phone": "1112223456",
-  "email": "gravity_is_awesome@gmail.com",
-  "created_at": "2011-11-11T22:38:28Z",
-  "first_name": "Isaac",
-  "address": "123 Fake Street"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Get Contacts</h2>
-  <p>Get all contacts for the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /account/contacts
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/contacts
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
-  {
-    "zip": "12345",
-    "country": "US",
-    "fax": "",
-    "city": "San Francisco",
-    "last_name": "Smith",
-    "organization": "",
-    "state": "CA",
-    "id": 3,
-    "label": null,
-    "address2": "",
-    "phone": "1112223456",
-    "email": "johnsmith@test.com",
-    "created_at": "2011-11-11T22:38:28Z",
-    "first_name": "John",
-    "address": "123 Fake Street"
-  }
-]
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-      </div>
-    </div>
-    <div id="sidebar">
-      <div id="sidebar-categories">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/summary/">Summary</a></li>
-          <li><a href="/account/">Account</a></li>
-          <li><a href="/domains/">Domains</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">Whois</a></li>
-          <li><a href="/billing/">Billing</a></li>
-        </ul>
-      </div>
-      <br/>
-      <div id="sidebar-topics">
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
 ;
-@;"Ä<div class="api-method">
-  <h2>Create Contact</h2>
-  <p>Create a new contact for the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /account/contacts
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>first_name</code></td>
-            <td>The first name for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>last_name</code></td>
-            <td>The last name for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>organization</code></td>
-            <td>The organization that the contact belongs to.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>phone</code></td>
-            <td>The phone number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>fax</code></td>
-            <td>The fax number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>email</code></td>
-            <td>The email address for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>address</code></td>
-            <td>The street address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>address2</code></td>
-            <td>The extended address for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>city</code></td>
-            <td>The city for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>state</code></td>
-            <td>The state for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>zip</code></td>
-            <td>The five digit postal code for the contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>country</code></td>
-            <td>The two letter alphanumeric country name for the contact.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account/contacts?first_name=John&last_name=Smith&phone=1112223456&address=123%20Fake%20Street&city=San%20Francisco&state=CA&zip=12345&country=US
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Contact created"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Update Contact</h2>
-  <p>Update one of the authenticated user's contacts.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        PUT /account/contacts/:contact_id
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td><code>first_name</code></td>
-            <td>The first name for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>last_name</code></td>
-            <td>The last name for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>organization</code></td>
-            <td>The organization that the contact belongs to.</td>
-          </tr>
-          <tr>
-            <td><code>phone</code></td>
-            <td>The phone number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>fax</code></td>
-            <td>The fax number for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>email</code></td>
-            <td>The email address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>address</code></td>
-            <td>The street address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>address2</code></td>
-            <td>The extended address for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>city</code></td>
-            <td>The city for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>state</code></td>
-            <td>The state for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>zip</code></td>
-            <td>The five digit postal code for the contact.</td>
-          </tr>
-          <tr>
-            <td><code>country</code></td>
-            <td>The two letter alphanumeric country name for the contact.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        PUT https://api.badger.com/account/contacts/1?first_name=Isaac&last_name=Newton&email=gravity_is_awesome@gmail.com
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "zip": "12345",
-  "country": "US",
-  "fax": "",
-  "city": "San Francisco",
-  "last_name": "Newton",
-  "organization": "",
-  "state": "CA",
-  "id": 3,
-  "label": null,
-  "address2": "",
-  "phone": "1112223456",
-  "email": "gravity_is_awesome@gmail.com",
-  "created_at": "2011-11-11T22:38:28Z",
-  "first_name": "Isaac",
-  "address": "123 Fake Street"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Get Contacts</h2>
-  <p>Get all contacts for the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /account/contacts
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/contacts
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
-  {
-    "zip": "12345",
-    "country": "US",
-    "fax": "",
-    "city": "San Francisco",
-    "last_name": "Smith",
-    "organization": "",
-    "state": "CA",
-    "id": 3,
-    "label": null,
-    "address2": "",
-    "phone": "1112223456",
-    "email": "johnsmith@test.com",
-    "created_at": "2011-11-11T22:38:28Z",
-    "first_name": "John",
-    "address": "123 Fake Street"
-  }
-]
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>"
-/dns/{;{	;"é<div class="api-method">
+@"
+/dns/{;{	;"é<div class="api-method">
   <h2>Get Records</h2>
   <p>View the user created DNS records for a domain. Requires authentication.</p>
   <ul>
@@ -1089,23 +1093,168 @@ Link: [
       </pre>
     </li>
   </ul>
-</div>;	"G<!DOCTYPE HTML>
+</div>;"é<div class="api-method">
+  <h2>Get Records</h2>
+  <p>View the user created DNS records for a domain. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /domains/:domain_name/records
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/domains/badger1.com/records
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+[
+  {
+    "active": true,
+    "ttl": 1800,
+    "name": "www.badger1.com",
+    "priority": null,
+    "record_type": "A",
+    "id": 10,
+    "content": "1.2.3.4"
+  },
+  {
+    "active": true,
+    "ttl": 3600,
+    "name": "test.badger1.com",
+    "priority": null,
+    "record_type": "A",
+    "id": 11,
+    "content": "9.9.8.8"
+  }
+]
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Add Record</h2>
+  <p>Add a new DNS record to the specified domain. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /domains/:domain_name/records
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>name</code></td>
+            <td>The subdomain associated with the record.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>record_type</code></td>
+            <td>The type of record being created. The supported types are A, MX, CNAME, and TXT.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>content</code></td>
+            <td>The content of the record.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>ttl</code></td>
+            <td>The time to live for the record (measured in seconds)</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/domains/badger1.com/records?name=www&record_type=a&content=1.2.3.4&ttl=1800
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Record created"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Delete Record</h2>
+  <p>Remove a DNS record from the specified domain. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        DELETE /domains/:domain_name/records/:record_id
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        DELETE https://api.badger.com/domains/badger1.com/records/12
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Record destroyed"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>;	"h<!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Badger.com API - DNS</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.2.3">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Badger.com API - DNS</title>
+
+  <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  <meta name="generator" content="nanoc 3.2.3">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="wrapper" style="display: block; ">
+    <div id="header">
+      <h1 id="logo">
+        <a href="#">api.badger.com docs</a>
+      </h1>
+    </div>
     <div id="main">
-      <div id="header">
-        <div id="header-title">
-          <h1><a href="/">Badger.com API</a></h1>
-        </div>
+      <div id="sidebar">
+        <form id="form-search" style="height: auto">
+          <!-- <input type="text" id="form-search-input" value="" placeholder="Start typing..."> -->
+        </form>
+        <ul id="menu">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/summary/">SUMMARY</a></li>
+          <li><a href="/account/">ACCOUNT</a></li>
+          <li><a href="/domains/">DOMAINS</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">WHOIS</a></li>
+          <li><a href="/billing/">BILLING</a></li>
+        </ul>
       </div>
-      <br/>
       <div id="content">
         <div class="api-method">
   <h2>Get Records</h2>
@@ -1238,202 +1387,13 @@ Link: [
   </ul>
 </div>
       </div>
+      <div style="clear: both"></div>
     </div>
-    <div id="sidebar">
-      <div id="sidebar-categories">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/summary/">Summary</a></li>
-          <li><a href="/account/">Account</a></li>
-          <li><a href="/domains/">Domains</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">Whois</a></li>
-          <li><a href="/billing/">Billing</a></li>
-        </ul>
-      </div>
-      <br/>
-      <div id="sidebar-topics">
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
 ;
-@;"é<div class="api-method">
-  <h2>Get Records</h2>
-  <p>View the user created DNS records for a domain. Requires authentication.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /domains/:domain_name/records
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/domains/badger1.com/records
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
-  {
-    "active": true,
-    "ttl": 1800,
-    "name": "www.badger1.com",
-    "priority": null,
-    "record_type": "A",
-    "id": 10,
-    "content": "1.2.3.4"
-  },
-  {
-    "active": true,
-    "ttl": 3600,
-    "name": "test.badger1.com",
-    "priority": null,
-    "record_type": "A",
-    "id": 11,
-    "content": "9.9.8.8"
-  }
-]
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Add Record</h2>
-  <p>Add a new DNS record to the specified domain. Requires authentication.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /domains/:domain_name/records
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>name</code></td>
-            <td>The subdomain associated with the record.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>record_type</code></td>
-            <td>The type of record being created. The supported types are A, MX, CNAME, and TXT.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>content</code></td>
-            <td>The content of the record.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>ttl</code></td>
-            <td>The time to live for the record (measured in seconds)</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/domains/badger1.com/records?name=www&record_type=a&content=1.2.3.4&ttl=1800
-      <code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Record created"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Delete Record</h2>
-  <p>Remove a DNS record from the specified domain. Requires authentication.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        DELETE /domains/:domain_name/records/:record_id
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='terminal'>
-        DELETE https://api.badger.com/domains/badger1.com/records/12
-      <code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Record destroyed"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>"/{;{	;"<h2>Welcome!</h2>
-<p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
-<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>;	"s<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Badger.com API - Home</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.2.3">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <div id="main">
-      <div id="header">
-        <div id="header-title">
-          <h1><a href="/">Badger.com API</a></h1>
-        </div>
-      </div>
-      <br/>
-      <div id="content">
-        <h2>Welcome!</h2>
-<p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
-<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>
-      </div>
-    </div>
-    <div id="sidebar">
-      <div id="sidebar-categories">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/summary/">Summary</a></li>
-          <li><a href="/account/">Account</a></li>
-          <li><a href="/domains/">Domains</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">Whois</a></li>
-          <li><a href="/billing/">Billing</a></li>
-        </ul>
-      </div>
-      <br/>
-      <div id="sidebar-topics">
-      </div>
-    </div>
-  </body>
-</html>
-;
-@;"<h2>Welcome!</h2>
-<p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
-<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>"/api_docs/{;{	;"-<h1>Welcome to the Badger API Docs!</h1>;	"e<!DOCTYPE HTML>
+@"/api_docs/{;{	;"-<h1>Welcome to the Badger API Docs!</h1>;"-<h1>Welcome to the Badger API Docs!</h1>;	"e<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1458,7 +1418,55 @@ Link: [
   </body>
 </html>
 ;
-@#;"-<h1>Welcome to the Badger API Docs!</h1>"/billing/{;{	;"<div class="api-method">
+@"/{;{	;"<h2>Welcome!</h2>
+<p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
+<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>;"<h2>Welcome!</h2>
+<p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
+<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>;	"”<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Badger.com API - Home</title>
+
+  <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  <meta name="generator" content="nanoc 3.2.3">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="wrapper" style="display: block; ">
+    <div id="header">
+      <h1 id="logo">
+        <a href="#">api.badger.com docs</a>
+      </h1>
+    </div>
+    <div id="main">
+      <div id="sidebar">
+        <form id="form-search" style="height: auto">
+          <!-- <input type="text" id="form-search-input" value="" placeholder="Start typing..."> -->
+        </form>
+        <ul id="menu">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/summary/">SUMMARY</a></li>
+          <li><a href="/account/">ACCOUNT</a></li>
+          <li><a href="/domains/">DOMAINS</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">WHOIS</a></li>
+          <li><a href="/billing/">BILLING</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <h2>Welcome!</h2>
+<p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
+<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+  </div>
+</body>
+</html>
+;
+@$"/billing/{;{	;"<div class="api-method">
   <h2>Get Payment Methods</h2>
   <p>View all stored payment methods for the authenticated user.</p>
   <ul>
@@ -1655,23 +1663,236 @@ Link: [
       </pre>
     </li>
   </ul>
-</div>;	"v<!DOCTYPE HTML>
+</div>;"<div class="api-method">
+  <h2>Get Payment Methods</h2>
+  <p>View all stored payment methods for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /account/payment_methods
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/account/payment_methods
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+[
+  {
+    "name": "Visa (411111******1111 12/2012)",
+    "id": 1
+  },
+  {
+    "name": "Visa (411111******1111 12/2011)",
+    "id": 3
+  }
+]
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Purchase Credits</h2>
+  <p>Purchase domain credits for the authenticated user. Successfully completing this command will charge the provided credit card.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/purchase_credits
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>credits</code></td>
+            <td>Number of credits being purchased.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>cc_number</code></td>
+            <td>The credit card number to withdraw funds from.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>cc_cvv</code></td>
+            <td>The CVV code for the credit card (must be encrypted using Braintree CSE).</td>
+          </tr>
+          <tr>
+            <td class='required'><code>cc_expiration_date</code></td>
+            <td>The expiration date for the credit card.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>first_name</code></td>
+            <td>The first name for the billing address.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>last_name</code></td>
+            <td>The last name for the billing address.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>street_address</code></td>
+            <td>The street address for the billing address.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>city</code></td>
+            <td>The city for the billing address.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>state</code></td>
+            <td>The state for the billing address.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>zip</code></td>
+            <td>The postal code for the billing address.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>country_name</code></td>
+            <td>The country name for the billing address.</td>
+          </tr>          
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/account/purchase_credits?cc_number=ABC123&cc_cvv=ABC123&cc_expiration_date=12/2142&first_name=John&last_name=Smith&street_address=123%20Fake%20Street&city=Chicago&state=IL&zip=12345&country_name=US&credits=1
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Domain credits added to account",
+  "transaction_id": 12, 
+  "purchase_record_id": 9
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Get Credit History</h2>
+  <p>View all billing activity for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /account/credit_history
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/account/credit_history
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+[
+  {
+    "updated_at": "2011-11-15T02:54:50Z",
+    "details": "domain registration",
+    "domain": {
+      "created_registrar": "rhino",
+      "status": "active",
+      "billing_contact_id": null,
+      "updated_registrar": "rhino",
+      "registered_on": "2011-11-15T02:54:50Z",
+      "administrator_contact_id": null,
+      "name": "badger1.com",
+      "losing_registrar": null,
+      "registrant_contact_id": 1,
+      "id": 28,
+      "expires_on": "2012-11-15T02:54:50Z",
+      "technical_contact_id": null
+    },
+    "created_at": "2011-11-15T02:54:50Z",
+    "num_credits": 0
+  },
+  {
+    "billing_address": {
+      "postal_code": "12345",
+      "company": null,
+      "region": "Illinois",
+      "street_address": "123 Fake Street",
+      "last_name": "Smith",
+      "country_name": "US",
+      "id": 4,
+      "extended_address": null,
+      "first_name": "John",
+      "locality": "Chicago"
+    },
+    "transaction": {
+      "status": "submitted_for_settlement",
+      "amount": 15,
+      "id": 4
+    },
+    "updated_at": "2011-11-11T22:38:00Z",
+    "details": "credits purchased",
+    "created_at": "2011-11-11T22:38:00Z",
+    "num_credits": 1,
+    "credit_card": {
+      "expiration_date": "12/2015",
+      "card_type": "Visa",
+      "number": "411111******1111",
+      "id": 4
+    }
+  }
+]
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>;	"—<!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Badger.com API - Billing</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.2.3">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Badger.com API - Billing</title>
+
+  <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  <meta name="generator" content="nanoc 3.2.3">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="wrapper" style="display: block; ">
+    <div id="header">
+      <h1 id="logo">
+        <a href="#">api.badger.com docs</a>
+      </h1>
+    </div>
     <div id="main">
-      <div id="header">
-        <div id="header-title">
-          <h1><a href="/">Badger.com API</a></h1>
-        </div>
+      <div id="sidebar">
+        <form id="form-search" style="height: auto">
+          <!-- <input type="text" id="form-search-input" value="" placeholder="Start typing..."> -->
+        </form>
+        <ul id="menu">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/summary/">SUMMARY</a></li>
+          <li><a href="/account/">ACCOUNT</a></li>
+          <li><a href="/domains/">DOMAINS</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">WHOIS</a></li>
+          <li><a href="/billing/">BILLING</a></li>
+        </ul>
       </div>
-      <br/>
       <div id="content">
         <div class="api-method">
   <h2>Get Payment Methods</h2>
@@ -1872,224 +2093,13 @@ Link: [
   </ul>
 </div>
       </div>
+      <div style="clear: both"></div>
     </div>
-    <div id="sidebar">
-      <div id="sidebar-categories">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/summary/">Summary</a></li>
-          <li><a href="/account/">Account</a></li>
-          <li><a href="/domains/">Domains</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">Whois</a></li>
-          <li><a href="/billing/">Billing</a></li>
-        </ul>
-      </div>
-      <br/>
-      <div id="sidebar-topics">
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
-;"<div class="api-method">
-  <h2>Get Payment Methods</h2>
-  <p>View all stored payment methods for the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /account/payment_methods
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/payment_methods
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
-  {
-    "name": "Visa (411111******1111 12/2012)",
-    "id": 1
-  },
-  {
-    "name": "Visa (411111******1111 12/2011)",
-    "id": 3
-  }
-]
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Purchase Credits</h2>
-  <p>Purchase domain credits for the authenticated user. Successfully completing this command will charge the provided credit card.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /account/purchase_credits
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>credits</code></td>
-            <td>Number of credits being purchased.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>cc_number</code></td>
-            <td>The credit card number to withdraw funds from.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>cc_cvv</code></td>
-            <td>The CVV code for the credit card (must be encrypted using Braintree CSE).</td>
-          </tr>
-          <tr>
-            <td class='required'><code>cc_expiration_date</code></td>
-            <td>The expiration date for the credit card.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>first_name</code></td>
-            <td>The first name for the billing address.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>last_name</code></td>
-            <td>The last name for the billing address.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>street_address</code></td>
-            <td>The street address for the billing address.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>city</code></td>
-            <td>The city for the billing address.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>state</code></td>
-            <td>The state for the billing address.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>zip</code></td>
-            <td>The postal code for the billing address.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>country_name</code></td>
-            <td>The country name for the billing address.</td>
-          </tr>          
-        </tbody>
-      </table>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account/purchase_credits?cc_number=ABC123&cc_cvv=ABC123&cc_expiration_date=12/2142&first_name=John&last_name=Smith&street_address=123%20Fake%20Street&city=Chicago&state=IL&zip=12345&country_name=US&credits=1
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Domain credits added to account",
-  "transaction_id": 12, 
-  "purchase_record_id": 9
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Get Credit History</h2>
-  <p>View all billing activity for the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /account/credit_history
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/credit_history
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
-  {
-    "updated_at": "2011-11-15T02:54:50Z",
-    "details": "domain registration",
-    "domain": {
-      "created_registrar": "rhino",
-      "status": "active",
-      "billing_contact_id": null,
-      "updated_registrar": "rhino",
-      "registered_on": "2011-11-15T02:54:50Z",
-      "administrator_contact_id": null,
-      "name": "badger1.com",
-      "losing_registrar": null,
-      "registrant_contact_id": 1,
-      "id": 28,
-      "expires_on": "2012-11-15T02:54:50Z",
-      "technical_contact_id": null
-    },
-    "created_at": "2011-11-15T02:54:50Z",
-    "num_credits": 0
-  },
-  {
-    "billing_address": {
-      "postal_code": "12345",
-      "company": null,
-      "region": "Illinois",
-      "street_address": "123 Fake Street",
-      "last_name": "Smith",
-      "country_name": "US",
-      "id": 4,
-      "extended_address": null,
-      "first_name": "John",
-      "locality": "Chicago"
-    },
-    "transaction": {
-      "status": "submitted_for_settlement",
-      "amount": 15,
-      "id": 4
-    },
-    "updated_at": "2011-11-11T22:38:00Z",
-    "details": "credits purchased",
-    "created_at": "2011-11-11T22:38:00Z",
-    "num_credits": 1,
-    "credit_card": {
-      "expiration_date": "12/2015",
-      "card_type": "Visa",
-      "number": "411111******1111",
-      "id": 4
-    }
-  }
-]
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>;
-@)"/contacts/{;{	;" ;	"0<!DOCTYPE HTML>
+;
+@*"/contacts/{;{	;" ;" ;	"0<!DOCTYPE HTML>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -2128,7 +2138,7 @@ Link: [
   </body>
 </html>
 ;
-@/;" "/stylesheet/{;{;"@* {
+@0"/stylesheet/{;{;"@* {
   margin: 0;
   padding: 0;
 
@@ -2256,8 +2266,8 @@ a:hover {
 
   line-height: 20px;
 }
-;
-@4;@4"/domains/{;{	;"à,<div class="api-method">
+;@4;
+@4"/domains/{;{	;"à,<div class="api-method">
   <h2>Register Domain</h2>
   <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account.</p>
   <ul>
@@ -2699,23 +2709,481 @@ a:hover {
       </pre>
     </li>
   </ul>
-</div>;	"B1<!DOCTYPE HTML>
+</div>;"à,<div class="api-method">
+  <h2>Register Domain</h2>
+  <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /domains
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>name</code></td>
+            <td>The domain name being registered. If not available, the command will fail.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>registrant_contact_id</code></td>
+            <td>The id for the registrant contact.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>name_servers</code></td>
+            <td>The name servers for the domain.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>privacy</code></td>
+            <td>Protect whois information, or make public.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>auto_renew</code></td>
+            <td>Automatically deduct credits when the domain expires.</td>
+          </tr>
+          <tr>
+            <td><code>years</code></td>
+            <td>Number of years to register domain. Default number of years is 1. Number of credits deducted from account is equal to the number of years specified.</td>
+          </tr>
+          <tr>
+            <td><code>administrator_contact_id</code></td>
+            <td>The id for the administrative contact.</td>
+          </tr>
+          <tr>
+            <td><code>technical_contact_id</code></td>
+            <td>The id for the technical contact.</td>
+          </tr>
+          <tr>
+            <td><code>billing_contact_id</code></td>
+            <td>The id for the billing contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/domains/search?name=badger1.com&privacy=true&auto_renew=true&registrant_contact_id=1&name_servers=ns1.badger.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "name": "badger1.com",
+  "message": "Domain registered",
+  "expires_on": "2012-11-15T02:49:03Z"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Update Domain</h2>
+  <p>Update domain information with the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /domains
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td><code>registrant_contact_id</code></td>
+            <td>The id for the registrant contact.</td>
+          </tr>
+          <tr>
+            <td><code>name_servers</code></td>
+            <td>The name servers for the domain.</td>
+          </tr>
+          <tr>
+            <td><code>privacy</code></td>
+            <td>Protect whois information, or make public.</td>
+          </tr>
+          <tr>
+            <td><code>auto_renew</code></td>
+            <td>Automatically deduct credits when the domain expires.</td>
+          </tr>
+          <tr>
+            <td><code>years</code></td>
+            <td>Number of years to register domain. Default number of years is 1. Number of credits deducted from account is equal to the number of years specified.</td>
+          </tr>
+          <tr>
+            <td><code>administrator_contact_id</code></td>
+            <td>The id for the administrative contact.</td>
+          </tr>
+          <tr>
+            <td><code>technical_contact_id</code></td>
+            <td>The id for the technical contact.</td>
+          </tr>
+          <tr>
+            <td><code>billing_contact_id</code></td>
+            <td>The id for the billing contact.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/domains/badger1.com?privacy=false&administrator_contact_id=3&technical_contact_id=3&billing_contact_id=3
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "billing_contact": {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  },
+  "locked": true,
+  "status": "active",
+  "created_registrar": "rhino",
+  "registrant_contact": {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  },
+  "technical_contact": {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  },
+  "updated_on": "2011-11-15T03:04:01Z",
+  "whois": "The data contained in this whois database...",
+  "updated_at": "2011-11-15T03:04:01Z",
+  "auto_renew": true,
+  "registered_on": "2011-11-15T02:07:43Z",
+  "name": "corytest.com",
+  "losing_registrar": null,
+  "id": 23,
+  "name_servers": [
+    "ns1.badger.com",
+    "ns2.badger.com"
+  ],
+  "administrator_contact": {
+    "zip": "12345",
+    "country": "US",
+    "fax": "",
+    "city": "San Francisco",
+    "last_name": "Smith",
+    "organization": "",
+    "state": "CA",
+    "id": 3,
+    "label": null,
+    "address2": "",
+    "phone": "1112223456",
+    "email": "johnsmith@test.com",
+    "created_at": "2011-11-11T22:38:28Z",
+    "first_name": "John",
+    "address": "123 Fake Street"
+  },
+  "created_at": "2011-11-15T02:07:43Z",
+  "privacy": false,
+  "expires_on": "2012-11-15T02:07:43Z"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Search</h2>
+  <p>Check to see if a domain is available for registration. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /domains/search
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>query</code></td>
+            <td>The domain name being searched. Note that .com and .net are automatically appended to the query.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>serial</code></td>
+            <td>A user specified serial.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/domains/search?query=badger&serial=abc123
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "serial": "fdsa",
+  "domains": [
+    [
+      "fdsa.com",
+      false
+    ],
+    [
+      "fdsa.net",
+      false
+    ]
+  ]
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Get Domains</h2>
+  <p>View all if the authenticated user's domains.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /domains
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/domains
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+[
+  {
+    "status": "active",
+    "name": "badger1.com",
+    "expires": "2015-11-03T03:07:53Z"
+  },
+  {
+    "status": "active",
+    "name": "badger2.com",
+    "expires": "2013-11-10T21:55:30Z"
+  },
+  {
+    "status": "pending_transfer_in",
+    "name": "badger3.net",
+    "expires": "2012-11-10T19:49:12Z"
+  }
+]
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Get Domain</h2>
+  <p>View a single domain for the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /domains/:domain_name/
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/domains/badger1.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "billing_contact": null,
+  "locked": true,
+  "status": "active",
+  "created_registrar": "rhino",
+  "registrant_contact": null,
+  "technical_contact": null,
+  "updated_at": "2011-11-12T19:22:10Z",
+  "whois": "The data contained in this whois database is...",
+  "updated_on": "2011-11-12T19:19:38Z",
+  "auto_renew": true,
+  "registered_on": "2011-11-03T03:07:53Z",
+  "name": "badger1.com",
+  "losing_registrar": null,
+  "id": 1,
+  "name_servers": [
+      "ns1.badger.com",
+      "ns2.badger.com"
+  ],
+  "created_at": "2011-11-03T03:07:53Z",
+  "expires_on": "2012-11-03T03:07:53Z",
+  "administrator_contact": null,
+  "privacy": true
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Domain Info</h2>
+  <p>Get basic information about the domain. This does not have to be a domain owned by the authenticated user.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /domains/:domain_name/info
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td><code>auth_code</code></td>
+            <td>The auth code for the specified domain. The command returns additional info if an auth code is provided.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/domains/badger.com/info
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "locked": false,
+  "code": 1000,
+  "statuses": [
+    "ok"
+  ],
+  "pending_transfer": false,
+  "updated_at": "2011-08-02T02:40:19.0000Z",
+  "registrar": {
+    "name": "Awesome Registrar Inc.",
+    "id": 1337
+  },
+  "message": "Command completed successfully",
+  "auth_code": null,
+  "created_at": "2003-08-01T00:39:12.0000Z",
+  "expires_on": "2012-08-01T00:39:12.0000Z"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>;	"c2<!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Badger.com API - Domains</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.2.3">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Badger.com API - Domains</title>
+
+  <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  <meta name="generator" content="nanoc 3.2.3">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="wrapper" style="display: block; ">
+    <div id="header">
+      <h1 id="logo">
+        <a href="#">api.badger.com docs</a>
+      </h1>
+    </div>
     <div id="main">
-      <div id="header">
-        <div id="header-title">
-          <h1><a href="/">Badger.com API</a></h1>
-        </div>
+      <div id="sidebar">
+        <form id="form-search" style="height: auto">
+          <!-- <input type="text" id="form-search-input" value="" placeholder="Start typing..."> -->
+        </form>
+        <ul id="menu">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/summary/">SUMMARY</a></li>
+          <li><a href="/account/">ACCOUNT</a></li>
+          <li><a href="/domains/">DOMAINS</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">WHOIS</a></li>
+          <li><a href="/billing/">BILLING</a></li>
+        </ul>
       </div>
-      <br/>
       <div id="content">
         <div class="api-method">
   <h2>Register Domain</h2>
@@ -3161,469 +3629,13 @@ a:hover {
   </ul>
 </div>
       </div>
+      <div style="clear: both"></div>
     </div>
-    <div id="sidebar">
-      <div id="sidebar-categories">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/summary/">Summary</a></li>
-          <li><a href="/account/">Account</a></li>
-          <li><a href="/domains/">Domains</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">Whois</a></li>
-          <li><a href="/billing/">Billing</a></li>
-        </ul>
-      </div>
-      <br/>
-      <div id="sidebar-topics">
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
-;"à,<div class="api-method">
-  <h2>Register Domain</h2>
-  <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /domains
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>name</code></td>
-            <td>The domain name being registered. If not available, the command will fail.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>registrant_contact_id</code></td>
-            <td>The id for the registrant contact.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>name_servers</code></td>
-            <td>The name servers for the domain.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>privacy</code></td>
-            <td>Protect whois information, or make public.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>auto_renew</code></td>
-            <td>Automatically deduct credits when the domain expires.</td>
-          </tr>
-          <tr>
-            <td><code>years</code></td>
-            <td>Number of years to register domain. Default number of years is 1. Number of credits deducted from account is equal to the number of years specified.</td>
-          </tr>
-          <tr>
-            <td><code>administrator_contact_id</code></td>
-            <td>The id for the administrative contact.</td>
-          </tr>
-          <tr>
-            <td><code>technical_contact_id</code></td>
-            <td>The id for the technical contact.</td>
-          </tr>
-          <tr>
-            <td><code>billing_contact_id</code></td>
-            <td>The id for the billing contact.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/domains/search?name=badger1.com&privacy=true&auto_renew=true&registrant_contact_id=1&name_servers=ns1.badger.com
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "name": "badger1.com",
-  "message": "Domain registered",
-  "expires_on": "2012-11-15T02:49:03Z"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Update Domain</h2>
-  <p>Update domain information with the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /domains
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td><code>registrant_contact_id</code></td>
-            <td>The id for the registrant contact.</td>
-          </tr>
-          <tr>
-            <td><code>name_servers</code></td>
-            <td>The name servers for the domain.</td>
-          </tr>
-          <tr>
-            <td><code>privacy</code></td>
-            <td>Protect whois information, or make public.</td>
-          </tr>
-          <tr>
-            <td><code>auto_renew</code></td>
-            <td>Automatically deduct credits when the domain expires.</td>
-          </tr>
-          <tr>
-            <td><code>years</code></td>
-            <td>Number of years to register domain. Default number of years is 1. Number of credits deducted from account is equal to the number of years specified.</td>
-          </tr>
-          <tr>
-            <td><code>administrator_contact_id</code></td>
-            <td>The id for the administrative contact.</td>
-          </tr>
-          <tr>
-            <td><code>technical_contact_id</code></td>
-            <td>The id for the technical contact.</td>
-          </tr>
-          <tr>
-            <td><code>billing_contact_id</code></td>
-            <td>The id for the billing contact.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/domains/badger1.com?privacy=false&administrator_contact_id=3&technical_contact_id=3&billing_contact_id=3
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "billing_contact": {
-    "zip": "12345",
-    "country": "US",
-    "fax": "",
-    "city": "San Francisco",
-    "last_name": "Smith",
-    "organization": "",
-    "state": "CA",
-    "id": 3,
-    "label": null,
-    "address2": "",
-    "phone": "1112223456",
-    "email": "johnsmith@test.com",
-    "created_at": "2011-11-11T22:38:28Z",
-    "first_name": "John",
-    "address": "123 Fake Street"
-  },
-  "locked": true,
-  "status": "active",
-  "created_registrar": "rhino",
-  "registrant_contact": {
-    "zip": "12345",
-    "country": "US",
-    "fax": "",
-    "city": "San Francisco",
-    "last_name": "Smith",
-    "organization": "",
-    "state": "CA",
-    "id": 3,
-    "label": null,
-    "address2": "",
-    "phone": "1112223456",
-    "email": "johnsmith@test.com",
-    "created_at": "2011-11-11T22:38:28Z",
-    "first_name": "John",
-    "address": "123 Fake Street"
-  },
-  "technical_contact": {
-    "zip": "12345",
-    "country": "US",
-    "fax": "",
-    "city": "San Francisco",
-    "last_name": "Smith",
-    "organization": "",
-    "state": "CA",
-    "id": 3,
-    "label": null,
-    "address2": "",
-    "phone": "1112223456",
-    "email": "johnsmith@test.com",
-    "created_at": "2011-11-11T22:38:28Z",
-    "first_name": "John",
-    "address": "123 Fake Street"
-  },
-  "updated_on": "2011-11-15T03:04:01Z",
-  "whois": "The data contained in this whois database...",
-  "updated_at": "2011-11-15T03:04:01Z",
-  "auto_renew": true,
-  "registered_on": "2011-11-15T02:07:43Z",
-  "name": "corytest.com",
-  "losing_registrar": null,
-  "id": 23,
-  "name_servers": [
-    "ns1.badger.com",
-    "ns2.badger.com"
-  ],
-  "administrator_contact": {
-    "zip": "12345",
-    "country": "US",
-    "fax": "",
-    "city": "San Francisco",
-    "last_name": "Smith",
-    "organization": "",
-    "state": "CA",
-    "id": 3,
-    "label": null,
-    "address2": "",
-    "phone": "1112223456",
-    "email": "johnsmith@test.com",
-    "created_at": "2011-11-11T22:38:28Z",
-    "first_name": "John",
-    "address": "123 Fake Street"
-  },
-  "created_at": "2011-11-15T02:07:43Z",
-  "privacy": false,
-  "expires_on": "2012-11-15T02:07:43Z"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Search</h2>
-  <p>Check to see if a domain is available for registration. Requires authentication.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /domains/search
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>query</code></td>
-            <td>The domain name being searched. Note that .com and .net are automatically appended to the query.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>serial</code></td>
-            <td>A user specified serial.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/domains/search?query=badger&serial=abc123
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "serial": "fdsa",
-  "domains": [
-    [
-      "fdsa.com",
-      false
-    ],
-    [
-      "fdsa.net",
-      false
-    ]
-  ]
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Get Domains</h2>
-  <p>View all if the authenticated user's domains.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /domains
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/domains
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
-  {
-    "status": "active",
-    "name": "badger1.com",
-    "expires": "2015-11-03T03:07:53Z"
-  },
-  {
-    "status": "active",
-    "name": "badger2.com",
-    "expires": "2013-11-10T21:55:30Z"
-  },
-  {
-    "status": "pending_transfer_in",
-    "name": "badger3.net",
-    "expires": "2012-11-10T19:49:12Z"
-  }
-]
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Get Domain</h2>
-  <p>View a single domain for the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /domains/:domain_name/
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/domains/badger1.com
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "billing_contact": null,
-  "locked": true,
-  "status": "active",
-  "created_registrar": "rhino",
-  "registrant_contact": null,
-  "technical_contact": null,
-  "updated_at": "2011-11-12T19:22:10Z",
-  "whois": "The data contained in this whois database is...",
-  "updated_on": "2011-11-12T19:19:38Z",
-  "auto_renew": true,
-  "registered_on": "2011-11-03T03:07:53Z",
-  "name": "badger1.com",
-  "losing_registrar": null,
-  "id": 1,
-  "name_servers": [
-      "ns1.badger.com",
-      "ns2.badger.com"
-  ],
-  "created_at": "2011-11-03T03:07:53Z",
-  "expires_on": "2012-11-03T03:07:53Z",
-  "administrator_contact": null,
-  "privacy": true
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Domain Info</h2>
-  <p>Get basic information about the domain. This does not have to be a domain owned by the authenticated user.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /domains/:domain_name/info
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td><code>auth_code</code></td>
-            <td>The auth code for the specified domain. The command returns additional info if an auth code is provided.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/domains/badger.com/info
-      <code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "locked": false,
-  "code": 1000,
-  "statuses": [
-    "ok"
-  ],
-  "pending_transfer": false,
-  "updated_at": "2011-08-02T02:40:19.0000Z",
-  "registrar": {
-    "name": "Awesome Registrar Inc.",
-    "id": 1337
-  },
-  "message": "Command completed successfully",
-  "auth_code": null,
-  "created_at": "2003-08-01T00:39:12.0000Z",
-  "expires_on": "2012-08-01T00:39:12.0000Z"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>;
-@9"/account/{;{	;"H<div class="api-method">
+;
+@:"/account/{;{	;"H<div class="api-method">
   <h2>Account Info</h2>
   <p>Get information about the authenticated user. Requires authentication.</p>
   <ul>
@@ -3904,23 +3916,320 @@ a:hover {
       </pre>
     </li>
   </ul>
-</div>;	"ª<!DOCTYPE HTML>
+</div>;"H<div class="api-method">
+  <h2>Account Info</h2>
+  <p>Get information about the authenticated user. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        GET /account/info
+      </code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        GET https://api.badger.com/account/info
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "domain_credits": 42,
+  "name": "John Smith"
+}
+        </code>
+      </pre>  
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Request Invite</h2>
+  <p>Send a Badger invitation request for the provided email address.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/invite_request
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>Email address for person requesting invite</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/invite_request?email=johnsmith@test.com
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Ok"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Create Account</h2>
+  <p>Create a new account with Badger.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>invite_code</code></td>
+            <td>Invitation code sent by Badger.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>first_name</code></td>
+            <td>First name for account owner</td>
+          </tr>
+          <tr>
+            <td class='required'><code>last_name</code></td>
+            <td>Last name for account owner</td>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>Email address for account owner</td>
+          </tr>
+          <tr>
+            <td><code>country</code></td>
+            <td>The account owners specified country</td>
+          </tr>
+          <tr>
+            <td><code>locale</code></td>
+            <td>The account owners specified locale</td>
+          </tr>
+          <tr>
+            <td><code>gender</code></td>
+            <td>The account owners specified gender</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123
+      </code>      
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Account created",
+  "access_token": "11.11111111.111111aaaabbbbcccccdddd000"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Forgot Password</h2>
+  <p>Send an account specific reset code to the provided email address. </p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/forgot_password
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>Account holder's email address.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Password reset email sent"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Reset Password</h2>
+  <p>Given a reset code (sent in email) and correct email address, reset an account password.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/reset_password
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>code</code></td>
+            <td>The password reset code sent by email.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>The email address for the account.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>new_password</code></td>
+            <td>The new password for the account.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Password reset"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h2>Change Password</h2>
+  <p>Change the authenticated user's password.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>
+        POST /account/change_password
+      </code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>new_password</code></td>
+            <td>The new password for the account.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>
+        POST https://api.badger.com/account/change_password?new_password=badger42?
+      <code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <pre>
+        <code class='json'>
+{
+  "message": "Password changed"
+}
+        </code>
+      </pre>
+    </li>
+  </ul>
+</div>;	"Ë <!DOCTYPE HTML>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Badger.com API - Account</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
-    <meta name="generator" content="nanoc 3.2.3">    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Badger.com API - Account</title>
+
+  <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  <meta name="generator" content="nanoc 3.2.3">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="wrapper" style="display: block; ">
+    <div id="header">
+      <h1 id="logo">
+        <a href="#">api.badger.com docs</a>
+      </h1>
+    </div>
     <div id="main">
-      <div id="header">
-        <div id="header-title">
-          <h1><a href="/">Badger.com API</a></h1>
-        </div>
+      <div id="sidebar">
+        <form id="form-search" style="height: auto">
+          <!-- <input type="text" id="form-search-input" value="" placeholder="Start typing..."> -->
+        </form>
+        <ul id="menu">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/summary/">SUMMARY</a></li>
+          <li><a href="/account/">ACCOUNT</a></li>
+          <li><a href="/domains/">DOMAINS</a></li>
+          <li><a href="/dns/">DNS</a></li>
+          <li><a href="/whois/">WHOIS</a></li>
+          <li><a href="/billing/">BILLING</a></li>
+        </ul>
       </div>
-      <br/>
       <div id="content">
         <div class="api-method">
   <h2>Account Info</h2>
@@ -4205,305 +4514,10 @@ a:hover {
   </ul>
 </div>
       </div>
+      <div style="clear: both"></div>
     </div>
-    <div id="sidebar">
-      <div id="sidebar-categories">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/summary/">Summary</a></li>
-          <li><a href="/account/">Account</a></li>
-          <li><a href="/domains/">Domains</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">Whois</a></li>
-          <li><a href="/billing/">Billing</a></li>
-        </ul>
-      </div>
-      <br/>
-      <div id="sidebar-topics">
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
 ;
-@?;"H<div class="api-method">
-  <h2>Account Info</h2>
-  <p>Get information about the authenticated user. Requires authentication.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        GET /account/info
-      </code>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/info
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "domain_credits": 42,
-  "name": "John Smith"
-}
-        </code>
-      </pre>  
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Request Invite</h2>
-  <p>Send a Badger invitation request for the provided email address.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /account/invite_request
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>email</code></td>
-            <td>Email address for person requesting invite</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>    
-    <li>
-      <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/invite_request?email=johnsmith@test.com
-      </code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Ok"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Create Account</h2>
-  <p>Create a new account with Badger.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /account/
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>invite_code</code></td>
-            <td>Invitation code sent by Badger.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>first_name</code></td>
-            <td>First name for account owner</td>
-          </tr>
-          <tr>
-            <td class='required'><code>last_name</code></td>
-            <td>Last name for account owner</td>
-          </tr>
-          <tr>
-            <td class='required'><code>email</code></td>
-            <td>Email address for account owner</td>
-          </tr>
-          <tr>
-            <td><code>country</code></td>
-            <td>The account owners specified country</td>
-          </tr>
-          <tr>
-            <td><code>locale</code></td>
-            <td>The account owners specified locale</td>
-          </tr>
-          <tr>
-            <td><code>gender</code></td>
-            <td>The account owners specified gender</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123
-      </code>      
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Account created",
-  "access_token": "11.11111111.111111aaaabbbbcccccdddd000"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Forgot Password</h2>
-  <p>Send an account specific reset code to the provided email address. </p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /account/forgot_password
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>email</code></td>
-            <td>Account holder's email address.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com
-      <code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Password reset email sent"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Reset Password</h2>
-  <p>Given a reset code (sent in email) and correct email address, reset an account password.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /account/reset_password
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>code</code></td>
-            <td>The password reset code sent by email.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>email</code></td>
-            <td>The email address for the account.</td>
-          </tr>
-          <tr>
-            <td class='required'><code>new_password</code></td>
-            <td>The new password for the account.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?
-      <code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Password reset"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
-
-<div class="api-method">
-  <h2>Change Password</h2>
-  <p>Change the authenticated user's password.</p>
-  <ul>
-    <li>
-      <p>Command</p>
-      <code class='terminal'>
-        POST /account/change_password
-      </code>
-    </li>
-    <li>
-      <p>Parameters (required values are in <b>bold</b>)</p>
-      <table class='parameters'>
-        <tbody>
-          <tr class='table-header'>
-            <th width='35%'>Name</th>
-            <th width='65%'>Description</th>
-          </tr>
-          <tr>
-            <td class='required'><code>new_password</code></td>
-            <td>The new password for the account.</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-    <li>
-      <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/change_password?new_password=badger42?
-      <code>
-    </li>
-    <li>
-      <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
-  "message": "Password changed"
-}
-        </code>
-      </pre>
-    </li>
-  </ul>
-</div>
+@@:versioni
