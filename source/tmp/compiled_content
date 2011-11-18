@@ -464,14 +464,14 @@
       </pre>
     </li>
   </ul>
-</div>:	post"N<!DOCTYPE HTML>
+</div>:	post"G<!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Badger.com API - Whois</title>
 
   <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="/style.css" media="screen"> -->
+  <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
   <meta name="generator" content="nanoc 3.2.3">    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -860,14 +860,14 @@ Link: [
 ]
     </code>
   </pre>
-</div>;	"+<!DOCTYPE HTML>
+</div>;	"$<!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Badger.com API - Summary</title>
 
   <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="/style.css" media="screen"> -->
+  <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
   <meta name="generator" content="nanoc 3.2.3">    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -1222,14 +1222,14 @@ Link: [
       </pre>
     </li>
   </ul>
-</div>;	"q<!DOCTYPE HTML>
+</div>;	"j<!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Badger.com API - DNS</title>
 
   <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="/style.css" media="screen"> -->
+  <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
   <meta name="generator" content="nanoc 3.2.3">    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -1422,14 +1422,14 @@ Link: [
 <p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
 <p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>;"<h1>Welcome!</h2>
 <p>This is the documentation for the Badger.com API, a RESTful API that uses JSON for requests and responses.</p>
-<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>;	"ù<!DOCTYPE HTML>
+<p>We have our javascript frontend, which implements the API, publicly available on <a href="https://github.com/badger/frontend">github</a>.</p>;	"ñ<!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Badger.com API - Home</title>
 
   <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="/style.css" media="screen"> -->
+  <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
   <meta name="generator" content="nanoc 3.2.3">    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -1860,14 +1860,14 @@ Link: [
       </pre>
     </li>
   </ul>
-</div>;	"†<!DOCTYPE HTML>
+</div>;	"ô<!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Badger.com API - Billing</title>
 
   <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="/style.css" media="screen"> -->
+  <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
   <meta name="generator" content="nanoc 3.2.3">    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -2267,7 +2267,7 @@ a:hover {
   line-height: 20px;
 }
 ;@4;
-@4"/domains/{;{	;"‡,<div class="api-method">
+@4"/domains/{;{	;"·,<div class="api-method">
   <h1>Register Domain</h2>
   <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account.</p>
   <ul>
@@ -2682,7 +2682,7 @@ a:hover {
       <p>Sample Request</p>
       <code class='terminal'>
         POST https://api.badger.com/domains/badger.com/info
-      <code>
+      </code>
     </li>
     <li>
       <p>Sample Response</p>
@@ -2709,7 +2709,7 @@ a:hover {
       </pre>
     </li>
   </ul>
-</div>;"‡,<div class="api-method">
+</div>;"·,<div class="api-method">
   <h1>Register Domain</h2>
   <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account.</p>
   <ul>
@@ -3124,7 +3124,7 @@ a:hover {
       <p>Sample Request</p>
       <code class='terminal'>
         POST https://api.badger.com/domains/badger.com/info
-      <code>
+      </code>
     </li>
     <li>
       <p>Sample Response</p>
@@ -3151,14 +3151,14 @@ a:hover {
       </pre>
     </li>
   </ul>
-</div>;	"l2<!DOCTYPE HTML>
+</div>;	"f2<!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Badger.com API - Domains</title>
 
   <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="/style.css" media="screen"> -->
+  <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
   <meta name="generator" content="nanoc 3.2.3">    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -3600,7 +3600,7 @@ a:hover {
       <p>Sample Request</p>
       <code class='terminal'>
         POST https://api.badger.com/domains/badger.com/info
-      <code>
+      </code>
     </li>
     <li>
       <p>Sample Response</p>
@@ -3635,32 +3635,24 @@ a:hover {
 </body>
 </html>
 ;
-@:"/account/{;{	;"H<div class="api-method">
+@:"/account/{;{	;"E<div class="api-method">
   <h1>Account Info</h2>
   <p>Get information about the authenticated user. Requires authentication.</p>
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /account/info
-      </code>
+      <code class='terminal'>GET /account/info</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/info
-      </code>
+      <code class='json'>GET https://api.badger.com/account/info?auth_code=ABC123</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+       <code class='json'>{
   "domain_credits": 42,
   "name": "John Smith"
-}
-        </code>
-      </pre>  
+}</code>
     </li>
   </ul>
 </div>
@@ -3671,9 +3663,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/invite_request
-      </code>
+      <code class='terminal'>POST /account/invite_request</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -3692,18 +3682,15 @@ a:hover {
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/invite_request?email=johnsmith@test.com
-      </code>
+      <code class='terminal'>POST https://api.badger.com/account/invite_request?email=johnsmith@test.com</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Ok"
 }
-        </code>
+</code>
       </pre>
     </li>
   </ul>
@@ -3715,9 +3702,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/
-      </code>
+      <code class='terminal'>POST /account/</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -3760,19 +3745,15 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123
-      </code>      
+      <code class='json'>POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123</code>      
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Account created",
   "access_token": "11.11111111.111111aaaabbbbcccccdddd000"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -3784,9 +3765,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/forgot_password
-      </code>
+      <code class='terminal'>POST /account/forgot_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -3805,18 +3784,14 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password reset email sent"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -3828,9 +3803,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/reset_password
-      </code>
+      <code class='terminal'>POST /account/reset_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -3857,18 +3830,14 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password reset"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -3880,9 +3849,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/change_password
-      </code>
+      <code class='terminal'>POST /account/change_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -3901,47 +3868,35 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/change_password?new_password=badger42?
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/change_password?new_password=badger42?</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password changed"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
-</div>;"H<div class="api-method">
+</div>;"E<div class="api-method">
   <h1>Account Info</h2>
   <p>Get information about the authenticated user. Requires authentication.</p>
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /account/info
-      </code>
+      <code class='terminal'>GET /account/info</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/info
-      </code>
+      <code class='json'>GET https://api.badger.com/account/info?auth_code=ABC123</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+       <code class='json'>{
   "domain_credits": 42,
   "name": "John Smith"
-}
-        </code>
-      </pre>  
+}</code>
     </li>
   </ul>
 </div>
@@ -3952,9 +3907,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/invite_request
-      </code>
+      <code class='terminal'>POST /account/invite_request</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -3973,18 +3926,15 @@ a:hover {
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/invite_request?email=johnsmith@test.com
-      </code>
+      <code class='terminal'>POST https://api.badger.com/account/invite_request?email=johnsmith@test.com</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Ok"
 }
-        </code>
+</code>
       </pre>
     </li>
   </ul>
@@ -3996,9 +3946,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/
-      </code>
+      <code class='terminal'>POST /account/</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -4041,19 +3989,15 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123
-      </code>      
+      <code class='json'>POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123</code>      
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Account created",
   "access_token": "11.11111111.111111aaaabbbbcccccdddd000"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -4065,9 +4009,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/forgot_password
-      </code>
+      <code class='terminal'>POST /account/forgot_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -4086,18 +4028,14 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password reset email sent"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -4109,9 +4047,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/reset_password
-      </code>
+      <code class='terminal'>POST /account/reset_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -4138,18 +4074,14 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password reset"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -4161,9 +4093,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/change_password
-      </code>
+      <code class='terminal'>POST /account/change_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -4182,29 +4112,25 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/change_password?new_password=badger42?
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/change_password?new_password=badger42?</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password changed"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
-</div>;	"‘ <!DOCTYPE HTML>
+</div>;	" <!DOCTYPE HTML>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Badger.com API - Account</title>
 
   <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="/style.css" media="screen"> -->
+  <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
   <meta name="generator" content="nanoc 3.2.3">    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -4237,26 +4163,18 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /account/info
-      </code>
+      <code class='terminal'>GET /account/info</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/info
-      </code>
+      <code class='json'>GET https://api.badger.com/account/info?auth_code=ABC123</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+       <code class='json'>{
   "domain_credits": 42,
   "name": "John Smith"
-}
-        </code>
-      </pre>  
+}</code>
     </li>
   </ul>
 </div>
@@ -4267,9 +4185,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/invite_request
-      </code>
+      <code class='terminal'>POST /account/invite_request</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -4288,18 +4204,15 @@ a:hover {
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/invite_request?email=johnsmith@test.com
-      </code>
+      <code class='terminal'>POST https://api.badger.com/account/invite_request?email=johnsmith@test.com</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Ok"
 }
-        </code>
+</code>
       </pre>
     </li>
   </ul>
@@ -4311,9 +4224,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/
-      </code>
+      <code class='terminal'>POST /account/</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -4356,19 +4267,15 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123
-      </code>      
+      <code class='json'>POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123</code>      
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Account created",
   "access_token": "11.11111111.111111aaaabbbbcccccdddd000"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -4380,9 +4287,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/forgot_password
-      </code>
+      <code class='terminal'>POST /account/forgot_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -4401,18 +4306,14 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password reset email sent"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -4424,9 +4325,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/reset_password
-      </code>
+      <code class='terminal'>POST /account/reset_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -4453,18 +4352,14 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password reset"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -4476,9 +4371,7 @@ a:hover {
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/change_password
-      </code>
+      <code class='terminal'>POST /account/change_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -4497,18 +4390,14 @@ a:hover {
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/change_password?new_password=badger42?
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/change_password?new_password=badger42?</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password changed"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>

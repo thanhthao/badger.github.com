@@ -1,5 +1,14 @@
 code {
+	font-family: monospace;
+   	white-space: pre;
+}
+
+code.json, code.terminal {
 	background: #282828;
 	color: #F8F8F8;
-	font-family: mono;
+	display: block;
+	padding: 5px;
+	overflow: auto;
 }
+
+.required { font-weight: bold; }

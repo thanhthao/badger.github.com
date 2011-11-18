@@ -5,7 +5,7 @@
   <title>Badger.com API - Account</title>
 
   <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
-  <!-- <link rel="stylesheet" type="text/css" href="/style.css" media="screen"> -->
+  <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
   <meta name="generator" content="nanoc 3.2.3">    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -38,26 +38,18 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /account/info
-      </code>
+      <code class='terminal'>GET /account/info</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/info
-      </code>
+      <code class='json'>GET https://api.badger.com/account/info?auth_code=ABC123</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+       <code class='json'>{
   "domain_credits": 42,
   "name": "John Smith"
-}
-        </code>
-      </pre>  
+}</code>
     </li>
   </ul>
 </div>
@@ -68,9 +60,7 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/invite_request
-      </code>
+      <code class='terminal'>POST /account/invite_request</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -89,18 +79,15 @@
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/invite_request?email=johnsmith@test.com
-      </code>
+      <code class='terminal'>POST https://api.badger.com/account/invite_request?email=johnsmith@test.com</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Ok"
 }
-        </code>
+</code>
       </pre>
     </li>
   </ul>
@@ -112,9 +99,7 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/
-      </code>
+      <code class='terminal'>POST /account/</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -157,19 +142,15 @@
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123
-      </code>      
+      <code class='json'>POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123</code>      
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Account created",
   "access_token": "11.11111111.111111aaaabbbbcccccdddd000"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -181,9 +162,7 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/forgot_password
-      </code>
+      <code class='terminal'>POST /account/forgot_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -202,18 +181,14 @@
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password reset email sent"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -225,9 +200,7 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/reset_password
-      </code>
+      <code class='terminal'>POST /account/reset_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -254,18 +227,14 @@
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password reset"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
@@ -277,9 +246,7 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/change_password
-      </code>
+      <code class='terminal'>POST /account/change_password</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -298,18 +265,14 @@
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/account/change_password?new_password=badger42?
-      <code>
+      <code class='terminal'>POST https://api.badger.com/account/change_password?new_password=badger42?</code>
     </li>
     <li>
       <p>Sample Response</p>
       <pre>
-        <code class='json'>
-{
+        <code class='json'>{
   "message": "Password changed"
-}
-        </code>
+}</code>
       </pre>
     </li>
   </ul>
