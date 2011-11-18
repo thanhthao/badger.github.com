@@ -2,7 +2,7 @@
 title: Summary
 ---
 <div id='summary-access'>
-  <h2>Accessing the API</h2>
+  <h1>Accessing the API</h2>
   <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
   
   <pre>
@@ -18,7 +18,7 @@ $ curl -G https://api.badger.com/account/info
 </div>
 <br/>
 <div id='summary-authentication'>
-  <h2>Authentication</h2>
+  <h1>Authentication</h2>
   <p>There are two ways of authenticating API calls.</p>
 
   <p>Basic Authentication:</p>
@@ -41,7 +41,7 @@ $ curl -G https://api.badger.com/account/info
 </div>
 <br/>
 <div id='summary-pagination'>
-  <h2>Pagination</h2>
+  <h1>Pagination</h2>
   <p>When a request returns multiple items, they will be split across multiple pages. The default number of items per page is 30.</p>
   <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
   You can view further pages by using the <code>?page</code> parameter.</p>
