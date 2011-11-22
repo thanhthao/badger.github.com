@@ -8,9 +8,7 @@ title: Domains
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /domains
-      </code>
+      <code class='terminal'>POST /domains</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -61,21 +59,15 @@ title: Domains
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/domains/search?name=badger1.com&privacy=true&auto_renew=true&registrant_contact_id=1&name_servers=ns1.badger.com
-      </code>
+      <code class='json'>POST https://api.badger.com/domains/search?name=badger1.com&privacy=true&auto_renew=true&registrant_contact_id=1&name_servers=ns1.badger.com</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+      <code class='json'>{
   "name": "badger1.com",
   "message": "Domain registered",
   "expires_on": "2012-11-15T02:49:03Z"
-}
-        </code>
-      </pre>
+}</code>
     </li>
   </ul>
 </div>
@@ -86,9 +78,7 @@ title: Domains
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /domains
-      </code>
+      <code class='terminal'>POST /domains</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -141,9 +131,7 @@ title: Domains
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+      <code class='json'>{
   "billing_contact": {
     "zip": "12345",
     "country": "US",
@@ -230,9 +218,7 @@ title: Domains
   "created_at": "2011-11-15T02:07:43Z",
   "privacy": false,
   "expires_on": "2012-11-15T02:07:43Z"
-}
-        </code>
-      </pre>
+}</code>
     </li>
   </ul>
 </div>
@@ -243,9 +229,7 @@ title: Domains
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /domains/search
-      </code>
+      <code class='terminal'>POST /domains/search</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -268,15 +252,11 @@ title: Domains
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/domains/search?query=badger&serial=abc123
-      </code>
+      <code class='json'>POST https://api.badger.com/domains/search?query=badger&serial=abc123</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+      <code class='json'>{
   "serial": "fdsa",
   "domains": [
     [
@@ -288,9 +268,7 @@ title: Domains
       false
     ]
   ]
-}
-        </code>
-      </pre>
+}</code>
     </li>
   </ul>
 </div>
@@ -301,21 +279,15 @@ title: Domains
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /domains
-      </code>
+      <code class='terminal'>GET /domains</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/domains
-      </code>
+      <code class='json'>GET https://api.badger.com/domains</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
+      <code class='json'>[
   {
     "status": "active",
     "name": "badger1.com",
@@ -331,9 +303,7 @@ title: Domains
     "name": "badger3.net",
     "expires": "2012-11-10T19:49:12Z"
   }
-]
-        </code>
-      </pre>
+]</code>
     </li>
   </ul>
 </div>
@@ -344,21 +314,15 @@ title: Domains
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /domains/:domain_name/
-      </code>
+      <code class='terminal'>GET /domains/:domain_name/</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/domains/badger1.com
-      </code>
+      <code class='json'>GET https://api.badger.com/domains/badger1.com</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+      <code class='json'>{
   "billing_contact": null,
   "locked": true,
   "status": "active",
@@ -381,9 +345,7 @@ title: Domains
   "expires_on": "2012-11-03T03:07:53Z",
   "administrator_contact": null,
   "privacy": true
-}
-        </code>
-      </pre>
+}</code>
     </li>
   </ul>
 </div>
@@ -394,9 +356,7 @@ title: Domains
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /domains/:domain_name/info
-      </code>
+      <code class='terminal'>GET /domains/:domain_name/info</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -421,8 +381,7 @@ title: Domains
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
+      <code class='json'>
 {
   "locked": false,
   "code": 1000,
@@ -440,8 +399,7 @@ title: Domains
   "created_at": "2003-08-01T00:39:12.0000Z",
   "expires_on": "2012-08-01T00:39:12.0000Z"
 }
-        </code>
-      </pre>
+      </code>
     </li>
   </ul>
 </div>

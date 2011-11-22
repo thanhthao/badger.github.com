@@ -51,32 +51,24 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /account/payment_methods
-      </code>
+      <code class='terminal'>GET /account/payment_methods</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/payment_methods
-      </code>
+      <code class='json'>GET https://api.badger.com/account/payment_methods</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
-  {
-    "name": "Visa (411111******1111 12/2012)",
-    "id": 1
-  },
-  {
-    "name": "Visa (411111******1111 12/2011)",
-    "id": 3
-  }
-]
-        </code>
-      </pre>
+      <code class='json'>[
+	{
+		"name": "Visa (411111******1111 12/2012)",
+		"id": 1
+	},
+	{
+		"name": "Visa (411111******1111 12/2011)",
+		"id": 3
+	}
+]</code>
     </li>
   </ul>
 </div>
@@ -87,9 +79,7 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/purchase_credits
-      </code>
+      <code class='terminal'>POST /account/purchase_credits</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -148,21 +138,15 @@
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account/purchase_credits?cc_number=ABC123&cc_cvv=ABC123&cc_expiration_date=12/2142&first_name=John&last_name=Smith&street_address=123%20Fake%20Street&city=Chicago&state=IL&zip=12345&country_name=US&credits=1
-      </code>
+      <code class='json'>POST https://api.badger.com/account/purchase_credits?cc_number=ABC123&cc_cvv=ABC123&cc_expiration_date=12/2142&first_name=John&last_name=Smith&street_address=123%20Fake%20Street&city=Chicago&state=IL&zip=12345&country_name=US&credits=1</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+      <code class='json'>{
   "message": "Domain credits added to account",
   "transaction_id": 12, 
   "purchase_record_id": 9
-}
-        </code>
-      </pre>
+}</code>
     </li>
   </ul>
 </div>
@@ -173,21 +157,15 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /account/credit_history
-      </code>
+      <code class='terminal'>GET /account/credit_history</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/credit_history
-      </code>
+      <code class='json'>GET https://api.badger.com/account/credit_history</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
+      <code class='json'>[
   {
     "updated_at": "2011-11-15T02:54:50Z",
     "details": "domain registration",
@@ -237,9 +215,7 @@
       "id": 4
     }
   }
-]
-        </code>
-      </pre>
+]</code>
     </li>
   </ul>
 </div>

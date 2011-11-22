@@ -8,21 +8,15 @@ title: DNS
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /domains/:domain_name/records
-      </code>
+      <code class='terminal'>GET /domains/:domain_name/records</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/domains/badger1.com/records
-      </code>
+      <code class='json'>GET https://api.badger.com/domains/badger1.com/records</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
+      <code class='json'>[
   {
     "active": true,
     "ttl": 1800,
@@ -41,9 +35,7 @@ title: DNS
     "id": 11,
     "content": "9.9.8.8"
   }
-]
-        </code>
-      </pre>
+]</code>
     </li>
   </ul>
 </div>
@@ -54,9 +46,7 @@ title: DNS
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /domains/:domain_name/records
-      </code>
+      <code class='terminal'>POST /domains/:domain_name/records</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -87,19 +77,13 @@ title: DNS
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        POST https://api.badger.com/domains/badger1.com/records?name=www&record_type=a&content=1.2.3.4&ttl=1800
-      </code>
+      <code class='terminal'>POST https://api.badger.com/domains/badger1.com/records?name=www&record_type=a&content=1.2.3.4&ttl=1800</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+      <code class='json'>{
   "message": "Record created"
-}
-        </code>
-      </pre>
+}</code>
     </li>
   </ul>
 </div>
@@ -110,25 +94,17 @@ title: DNS
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        DELETE /domains/:domain_name/records/:record_id
-      </code>
+      <code class='terminal'>DELETE /domains/:domain_name/records/:record_id</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>
-        DELETE https://api.badger.com/domains/badger1.com/records/12
-      </code>
+      <code class='terminal'>DELETE https://api.badger.com/domains/badger1.com/records/12</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+      <code class='json'>{
   "message": "Record destroyed"
-}
-        </code>
-      </pre>
+}</code>
     </li>
   </ul>
 </div>

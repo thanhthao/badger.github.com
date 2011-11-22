@@ -51,9 +51,7 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        POST /account/contacts
-      </code>
+      <code class='terminal'>POST /account/contacts</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -116,19 +114,13 @@
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        POST https://api.badger.com/account/contacts?first_name=John&last_name=Smith&phone=1112223456&address=123%20Fake%20Street&city=San%20Francisco&state=CA&zip=12345&country=US
-      </code>
+      <code class='json'>POST https://api.badger.com/account/contacts?first_name=John&last_name=Smith&phone=1112223456&address=123%20Fake%20Street&city=San%20Francisco&state=CA&zip=12345&country=US</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+      <code class='json'>{
   "message": "Contact created"
-}
-        </code>
-      </pre>
+}</code>
     </li>
   </ul>
 </div>
@@ -139,9 +131,7 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        PUT /account/contacts/:contact_id
-      </code>
+      <code class='terminal'>PUT /account/contacts/:contact_id</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -204,15 +194,11 @@
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        PUT https://api.badger.com/account/contacts/1?first_name=Isaac&last_name=Newton&email=gravity_is_awesome@gmail.com
-      </code>
+      <code class='json'>PUT https://api.badger.com/account/contacts/1?first_name=Isaac&last_name=Newton&email=gravity_is_awesome@gmail.com</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-{
+      <code class='json'>{
   "zip": "12345",
   "country": "US",
   "fax": "",
@@ -228,9 +214,7 @@
   "created_at": "2011-11-11T22:38:28Z",
   "first_name": "Isaac",
   "address": "123 Fake Street"
-}
-        </code>
-      </pre>
+}</code>
     </li>
   </ul>
 </div>
@@ -241,21 +225,15 @@
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>
-        GET /account/contacts
-      </code>
+      <code class='terminal'>GET /account/contacts</code>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>
-        GET https://api.badger.com/account/contacts
-      </code>
+      <code class='json'>GET https://api.badger.com/account/contacts</code>
     </li>
     <li>
       <p>Sample Response</p>
-      <pre>
-        <code class='json'>
-[
+      <code class='json'>[
   {
     "zip": "12345",
     "country": "US",
@@ -273,9 +251,7 @@
     "first_name": "John",
     "address": "123 Fake Street"
   }
-]
-        </code>
-      </pre>
+]</code>
     </li>
   </ul>
 </div>

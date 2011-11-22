@@ -49,13 +49,8 @@
   <h1>Accessing the API</h2>
   <p>The Badger API is accessed over HTTPS, from api.badger.com. All data is sent and received as JSON.</p>
   
-  <pre>
-    <code class='terminal'>
-$ curl -G https://api.badger.com/account/info
-
-{"message":"Invalid or missing access token"}
-    </code>
-  </pre>
+  <code class='terminal'>$ curl -G https://api.badger.com/account/info
+{"message":"Invalid or missing access token"}</code>
 
   <p>Oh no, we are not authorized to view this content! Most API methods require an account specific access token to use,
   which brings us to the next topic...</p>  
@@ -67,21 +62,15 @@ $ curl -G https://api.badger.com/account/info
 
   <p>Basic Authentication:</p>
 
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com
-  </code>
+  <code class='terminal'>$ curl -u "email:password" https://api.badger.com</code>
 
   <p>Access Token (sent in a custom header)</p>
 
-  <code class='terminal'>
-  $ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com
-  </code>
+  <code class='terminal'>$ curl -H "access_token: ACCESS_TOKEN" https://api.badger.com</code>
 
   <p>Access Token (sent as parameter)</p>
 
-  <code class='terminal'>
-  $ curl https://api.badger.com?access_token=ACCESS_TOKEN
-  </code>
+  <code class='terminal'>$ curl https://api.badger.com?access_token=ACCESS_TOKEN</code>
 </div>
 <br/>
 <div id='summary-pagination'>
@@ -90,22 +79,16 @@ $ curl -G https://api.badger.com/account/info
   <p>You can specify the number of items per page up to 250 with the <code>?per_page</code> parameter.
   You can view further pages by using the <code>?page</code> parameter.</p>
 
-  <code class='terminal'>
-  $ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3
-  </code>
+  <code class='terminal'>$ curl -u "email:password" https://api.badger.com/domains?per_page=10&page=3</code>
 
   <p>The pagination information is sent in the Link header</p>
 
-  <pre>
-    <code class='json'>
-Link: [
+  <code class='json'>Link: [
   {"rel":"next","url":"http://api.badger.dev/domains?page=4&per_page=10"},
   {"rel":"last","url":"http://api.badger.dev/domains?page=8&per_page=10"},
   {"rel":"prev","url":"http://api.badger.dev/domains?page=2&per_page=10"},
   {"rel":"first","url":"http://api.badger.dev/domains?page=1&per_page=10"}
-]
-    </code>
-  </pre>
+]</code>
 </div>
       </div>
       <div style="clear: both"></div>
