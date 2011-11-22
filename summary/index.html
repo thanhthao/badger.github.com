@@ -18,17 +18,30 @@
     </div>
     <div id="main">
       <div id="sidebar">
-        <form id="form-search" style="height: auto">
-          <!-- <input type="text" id="form-search-input" value="" placeholder="Start typing..."> -->
+        <form id="form-search" method="get" action="http://www.google.com/search" target="_blank">
+					<input type="hidden"  name="sitesearch" value="badger.github.com" />
+					<input type="text" id="form-search-input" name="q" value="" placeholder="Search" />
         </form>
         <ul id="menu">
-          <li><a href="/">HOME</a></li>
-          <li><a href="/summary/">SUMMARY</a></li>
-          <li><a href="/account/">ACCOUNT</a></li>
-          <li><a href="/domains/">DOMAINS</a></li>
-          <li><a href="/dns/">DNS</a></li>
-          <li><a href="/whois/">WHOIS</a></li>
-          <li><a href="/billing/">BILLING</a></li>
+          <li>
+						<a href="/" >OVERVIEW</a>
+						<ul class="expanded">
+	          	<li class="website"><a href="/summary/" class="active">SUMMARY</a></li>
+						</ul>
+					</li>
+          <li>
+						<a href="/account/" >ACCOUNTS</a>
+						<ul >
+              <li class="website"><a href="/billing/" >BILLING</a></li>
+            </ul>
+					</li>
+          <li>
+						<a href="/domains/" >DOMAINS</a>
+						<ul >
+		          <li class="website"><a href="/dns/" >DNS</a></li>
+		          <li class="website"><a href="/whois/" >WHOIS</a></li>
+						</ul>
+					</li>
         </ul>
       </div>
       <div id="content">
