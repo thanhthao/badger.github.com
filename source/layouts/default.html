@@ -30,7 +30,7 @@
 						</ul>
 					</li>
           <li>
-						<a href="/account/" <%='class="active"' if @item[:title] == 'Account'%>>ACCOUNTS</a>
+						<a href="/account/" <%='class="active"' if @item[:title] == 'Accounts'%>>ACCOUNTS</a>
 						<ul <%='class="expanded"' if ['Account', 'Billing'].include?(@item[:title])%>>
               <li class="website"><a href="/billing/" <%='class="active"' if @item[:title] == 'Billing'%>>BILLING</a></li>
             </ul>
