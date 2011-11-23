@@ -25,7 +25,7 @@
         <ul id="menu">
           <li>
 						<a href="/" <%='class="active"' if @item[:title] == 'Overview'%>>OVERVIEW</a>
-						<ul <%='class="expanded"' if ['Overview', 'API Overview'].include?(@item[:title])%>>
+						<ul <%='class="expanded"' if ['Overview', 'API Usage'].include?(@item[:title])%>>
 	          	<li class="website"><a href="/summary/" <%='class="active"' if @item[:title] == 'API Usage'%>>API USAGE</a></li>
 						</ul>
 					</li>
