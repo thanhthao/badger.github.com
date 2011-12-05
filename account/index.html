@@ -61,7 +61,9 @@
       <p>Sample Response</p>
        <code class='json'>{
   "domain_credits": 42,
-  "name": "John Smith"
+  "name": "John Smith",
+  "invites_available" : 5,
+  "confirmed_email" : true
 }</code>
     </li>
   </ul>
@@ -97,7 +99,7 @@
     <li>
       <p>Sample Response</p>
       <code class='json'>{
-  "message": "Ok", "invite_request_id": 1
+  "message": "Ok", "invite_request_id": "1-johnsmith@test.com"
 }
 </code>
     </li>
@@ -141,7 +143,7 @@
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>POST https://api.badger.com/account/request_invite_extra_info?full_name='johnsmith'&total_domains_registered='11-50'&suggestion='suggestions'</code>
+      <code class='terminal'>POST https://api.badger.com/account/request_invite_extra_info?invite_request_id=1-johnsmith@test.com&full_name=johnsmith&total_domains_registered=11-50&suggestion=suggestion1</code>
     </li>
     <li>
       <p>Sample Response</p>
@@ -184,6 +186,10 @@
           <tr>
             <td class='required'><code>email</code></td>
             <td>Email address for account owner</td>
+          </tr>
+          <tr>
+            <td class='required'><code>password</code></td>
+            <td>Password of account owner</td>
           </tr>
           <tr>
             <td><code>country</code></td>
@@ -283,7 +289,7 @@
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>POST https://api.badger.com/account/forgot_password?email=johnsmith@test.com&code=abc123&new_password=badger42?</code>
+      <code class='terminal'>POST https://api.badger.com/account/reset_password?email=johnsmith@test.com&code=abc123&new_password=badger42?</code>
     </li>
     <li>
       <p>Sample Response</p>
@@ -363,12 +369,12 @@
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>POST https://api.badger.com/account/send_invite?email=myemail@xample.com&first_name=FirstName&last_name=LastName</code>
+      <code class='terminal'>POST https://api.badger.com/account/send_invite?email=myemail@example.com&first_name=FirstName&last_name=LastName</code>
     </li>
     <li>
       <p>Sample Response</p>
       <code class='json'>{
-  "message": "An invitation for badger.com has been sent to myemail@xample.com"
+  "message": "An invitation for badger.com has been sent to myemail@example.com"
 }</code>
     </li>
   </ul>
@@ -399,7 +405,7 @@
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>POST https://api.badger.com/account/confirm_email/afdb23sde34s</code>
+      <code class='terminal'>POST https://api.badger.com/account/confirm_email?code=afdb23sde34s</code>
     </li>
     <li>
       <p>Sample Response</p>

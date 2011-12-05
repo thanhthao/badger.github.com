@@ -59,7 +59,7 @@ title: Domains
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='json'>POST https://api.badger.com/domains/search?name=badger1.com&privacy=true&auto_renew=true&registrant_contact_id=1&name_servers=ns1.badger.com</code>
+      <code class='json'>POST https://api.badger.com/domains?name=badger1.com&privacy=true&auto_renew=true&registrant_contact_id=1&name_servers=ns1.badger.com</code>
     </li>
     <li>
       <p>Sample Response</p>
@@ -78,7 +78,7 @@ title: Domains
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>POST /domains</code>
+      <code class='terminal'>POST /domains/:domain_name</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -105,8 +105,8 @@ title: Domains
             <td>Automatically deduct credits when the domain expires.</td>
           </tr>
           <tr>
-            <td><code>years</code></td>
-            <td>Number of years to register domain. Default number of years is 1. Number of credits deducted from account is equal to the number of years specified.</td>
+            <td><code>locked</code></td>
+            <td>Indicate whether the domain is locked</td>
           </tr>
           <tr>
             <td><code>administrator_contact_id</code></td>
@@ -257,14 +257,14 @@ title: Domains
     <li>
       <p>Sample Response</p>
       <code class='json'>{
-  "serial": "fdsa",
+  "serial": "abc123",
   "domains": [
     [
-      "fdsa.com",
+      "badger.com",
       false
     ],
     [
-      "fdsa.net",
+      "badger.net",
       false
     ]
   ]
