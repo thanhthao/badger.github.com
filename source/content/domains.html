@@ -3,7 +3,7 @@ title: Domains
 ---
 
 <div class="api-method">
-  <h1>Register Domain</h2>
+  <h1>Register Domain</h1>
   <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account.</p>
   <ul>
     <li>
@@ -59,7 +59,7 @@ title: Domains
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='json'>POST https://api.badger.com/domains/search?name=badger1.com&privacy=true&auto_renew=true&registrant_contact_id=1&name_servers=ns1.badger.com</code>
+      <code class='json'>POST https://api.badger.com/domains?name=badger1.com&privacy=true&auto_renew=true&registrant_contact_id=1&name_servers=ns1.badger.com</code>
     </li>
     <li>
       <p>Sample Response</p>
@@ -73,12 +73,12 @@ title: Domains
 </div>
 
 <div class="api-method">
-  <h1>Update Domain</h2>
+  <h1>Update Domain</h1>
   <p>Update domain information with the authenticated user.</p>
   <ul>
     <li>
       <p>Command</p>
-      <code class='terminal'>POST /domains</code>
+      <code class='terminal'>POST /domains/:domain_name</code>
     </li>
     <li>
       <p>Parameters (required values are in <b>bold</b>)</p>
@@ -105,8 +105,8 @@ title: Domains
             <td>Automatically deduct credits when the domain expires.</td>
           </tr>
           <tr>
-            <td><code>years</code></td>
-            <td>Number of years to register domain. Default number of years is 1. Number of credits deducted from account is equal to the number of years specified.</td>
+            <td><code>locked</code></td>
+            <td>Indicate whether the domain is locked</td>
           </tr>
           <tr>
             <td><code>administrator_contact_id</code></td>
@@ -224,7 +224,7 @@ title: Domains
 </div>
 
 <div class="api-method">
-  <h1>Search</h2>
+  <h1>Search</h1>
   <p>Check to see if a domain is available for registration. Requires authentication.</p>
   <ul>
     <li>
@@ -257,14 +257,14 @@ title: Domains
     <li>
       <p>Sample Response</p>
       <code class='json'>{
-  "serial": "fdsa",
+  "serial": "abc123",
   "domains": [
     [
-      "fdsa.com",
+      "badger.com",
       false
     ],
     [
-      "fdsa.net",
+      "badger.net",
       false
     ]
   ]
@@ -274,7 +274,7 @@ title: Domains
 </div>
 
 <div class="api-method">
-  <h1>Get Domains</h2>
+  <h1>Get Domains</h1>
   <p>View all of the authenticated user's domains.</p>
   <ul>
     <li>
@@ -309,7 +309,7 @@ title: Domains
 </div>
 
 <div class="api-method">
-  <h1>Get Domain</h2>
+  <h1>Get Domain</h1>
   <p>View a single domain for the authenticated user.</p>
   <ul>
     <li>
@@ -351,7 +351,7 @@ title: Domains
 </div>
 
 <div class="api-method">
-  <h1>Domain Info</h2>
+  <h1>Domain Info</h1>
   <p>Get basic information about the domain. This does not have to be a domain owned by the authenticated user.</p>
   <ul>
     <li>
