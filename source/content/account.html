@@ -259,7 +259,7 @@ title: Accounts
 
 <div class="api-method">
   <h1>Change Password</h1>
-  <p>Change the authenticated user's password.</p>
+  <p>Change the authenticated user's password. Requires authentication</p>
   <ul>
     <li>
       <p>Command</p>
@@ -295,7 +295,7 @@ title: Accounts
 
 <div class="api-method">
   <h1>Send Invitation</h1>
-  <p>Invite friend to use badger.com.</p>
+  <p>Invite friend to use badger.com. Requires authentication</p>
   <ul>
     <li>
       <p>Command</p>
@@ -377,6 +377,38 @@ title: Accounts
       <code class='json'>{
   "message": "Thanks! Your email address has been confirmed"
 }</code>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h1>All Sent Invites</h1>
+  <p>Get information about all the invitations that have been sent out. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>GET /account/all_sent_invites</code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>GET https://api.badger.com/account/all_sent_invites?auth_code=ABC123</code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+       <code class='json'>[
+         {
+          "email": johndoe@example.com,
+          "sent_date": "2011-11-12T14:29:26Z",
+          "domain_credits" : 3,
+          "accepted" : true
+         },
+         {
+          "email": marydoe@example.com,
+          "sent_date": "2011-12-12T14:29:26Z",
+          "domain_credits" : 0,
+          "accepted" : false
+         }]
+       </code>
     </li>
   </ul>
 </div>
