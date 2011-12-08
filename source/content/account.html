@@ -397,16 +397,22 @@ title: Accounts
       <p>Sample Response</p>
        <code class='json'>[
          {
+          "name": "John Doe",
           "email": johndoe@example.com,
-          "sent_date": "2011-11-12T14:29:26Z",
+          "date_sent": "2011-12-12T14:29:26Z",
           "domain_credits" : 3,
-          "accepted" : true
+          "accepted": true,
+          "revoked_at": "",
+          "id": "1-johndoe@example.com"
          },
          {
+          "name": "Mary Doe",
           "email": marydoe@example.com,
-          "sent_date": "2011-12-12T14:29:26Z",
-          "domain_credits" : 0,
-          "accepted" : false
+          "date_sent": "2011-11-12T14:29:26Z",
+          "domain_credits": 0,
+          "accepted": false,
+          "revoked_at": "2011-12-13T14:29:26Z",
+          "id": "2-marydoe@example.com"
          }]
        </code>
     </li>
