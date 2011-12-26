@@ -63,18 +63,18 @@
   {
     "active": true,
     "ttl": 1800,
-    "name": "www.badger1.com",
+    "subdomain": "www.badger1.com",
     "priority": null,
-    "record_type": "A",
+    "record_type": "a",
     "id": 10,
     "content": "1.2.3.4"
   },
   {
     "active": true,
     "ttl": 3600,
-    "name": "test.badger1.com",
+    "subdomain": "test.badger1.com",
     "priority": null,
-    "record_type": "A",
+    "record_type": "a",
     "id": 11,
     "content": "9.9.8.8"
   }
@@ -100,7 +100,7 @@
             <th width='65%'>Description</th>
           </tr>
           <tr>
-            <td><code>name</code></td>
+            <td><code>subdomain</code></td>
             <td>The subdomain associated with the record.</td>
           </tr>
           <tr>
@@ -112,21 +112,83 @@
             <td>The content of the record.</td>
           </tr>
           <tr>
-            <td class='required'><code>ttl</code></td>
+            <td><code>ttl</code></td>
             <td>The time to live for the record (measured in seconds)</td>
+          </tr>
+          <tr>
+            <td><code>priority</code></td>
+            <td>The priority for MX type record</td>
           </tr>
         </tbody>
       </table>
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='terminal'>POST https://api.badger.com/domains/badger1.com/records?name=www&record_type=a&content=1.2.3.4&ttl=1800</code>
+      <code class='terminal'>POST https://api.badger.com/domains/badger1.com/records?subdomain=www&record_type=a&content=1.2.3.4&ttl=1800</code>
     </li>
     <li>
       <p>Sample Response</p>
       <code class='json'>{
   "message": "Record created"
 }</code>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h1>Update Record</h1>
+  <p>Update an existed DNS record of a specified domain. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>PUT /domains/:domain_name/records/:record_id</code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td><code>subdomain</code></td>
+            <td>The subdomain associated with the record.</td>
+          </tr>
+          <tr>
+            <td><code>record_type</code></td>
+            <td>The type of record being created. The supported types are A, MX, CNAME, and TXT.</td>
+          </tr>
+          <tr>
+            <td><code>content</code></td>
+            <td>The content of the record.</td>
+          </tr>
+          <tr>
+            <td><code>ttl</code></td>
+            <td>The time to live for the record (measured in seconds)</td>
+          </tr>
+          <tr>
+            <td><code>priority</code></td>
+            <td>The priority for MX type record</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>PUT https://api.badger.com/domains/badger1.com/records/12?subdomain=www&record_type=a&content=1.2.3.4&ttl=1800</code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <code class='json'>{
+    "active": true,
+    "ttl": 1800,
+    "subdomain": "www.badger1.com",
+    "priority": null,
+    "record_type": "a",
+    "id": 10,
+    "content": "1.2.3.4"
+  }</code>
     </li>
   </ul>
 </div>
