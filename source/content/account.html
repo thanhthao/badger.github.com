@@ -149,6 +149,10 @@ title: Accounts
             <td>Password of account owner</td>
           </tr>
           <tr>
+            <td class='required'><code>agree_to_terms</code></td>
+            <td>User have to agree to terms of service of Badger</td>
+          </tr>
+          <tr>
             <td><code>country</code></td>
             <td>The account owners specified country</td>
           </tr>
@@ -165,7 +169,7 @@ title: Accounts
     </li>
     <li>
       <p>Sample Request</p>
-      <code class='json'>POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123</code>      
+      <code class='json'>POST https://api.badger.com/account?first_name=John&last_name=Smith&email=johnsmith@test.com&password=badger42!&invite_code=abc123&agree_to_terms=true</code>
     </li>
     <li>
       <p>Sample Response</p>
