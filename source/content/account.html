@@ -291,7 +291,83 @@ title: Accounts
     <li>
       <p>Sample Response</p>
       <code class='json'>{
-  "message": "Password changed"
+  "message": "Password Changed"
+}</code>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h1>Change First/Last Name</h1>
+  <p>Change the authenticated user's first and last name. Requires authentication</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>POST /account/change_name</code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>first_name</code></td>
+            <td>The new first name for the account.</td>
+          </tr>
+          <tr>
+            <td class='required'><code>last_name</code></td>
+            <td>The new last name for the account.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>POST https://api.badger.com/account/change_name?first_name=Mary&last_name=Brown</code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <code class='json'>{
+  "message": "Name Changed"
+}</code>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h1>Change Email Address</h1>
+  <p>Change the authenticated user's email address. Requires authentication</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>POST /account/change_email</code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>email</code></td>
+            <td>The new email for the account.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>POST https://api.badger.com/account/change_email?email=my_email@example.com</code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <code class='json'>{
+  "message": "Email Changed"
 }</code>
     </li>
   </ul>
