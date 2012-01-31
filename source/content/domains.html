@@ -3,8 +3,8 @@ title: Domains
 ---
 
 <div class="api-method">
-  <h1>Register Domain</h1>
-  <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account.</p>
+  <h1>Register Domain</h2>
+  <p>Register a domain with the authenticated user. Successfully completing this command will subtract credits from the user's account equal to the number of years the domain is registered for.</p>
   <ul>
     <li>
       <p>Command</p>
@@ -224,7 +224,49 @@ title: Domains
 </div>
 
 <div class="api-method">
-  <h1>Search</h1>
+  <h1>Renew Domain</h2>
+  <p>Renew the registration for a domain, extending the expiration date. Successfully completing this command will subtract credits from the user's account equal to the number of years the registration is extended by.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>POST /domains/:domain_name/renew</code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td><code class="required">years</code></td>
+            <td>The number of years to extend the registration by. <b>Note</b>, you cannot register a domain for more than 10 years.</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>    
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>
+        POST https://api.badger.com/domains/badger1.com/renew?years=2
+      </code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <code class='json'>{
+  "years": 2,
+  "new_expires_on": "2019-01-24T02:45:59Z",
+  "old_expires_on": "2017-01-24T02:45:59Z",
+  "message": "Domain successfully renewed"
+}</code>
+    </li>
+  </ul>
+</div>
+
+
+<div class="api-method">
+  <h1>Search</h2>
   <p>Check to see if a domain is available for registration. Requires authentication.</p>
   <ul>
     <li>
@@ -242,7 +284,7 @@ title: Domains
           </tr>
           <tr>
             <td class='required'><code>query</code></td>
-            <td>The domain name being searched. Note that .com and .net are automatically appended to the query.</td>
+            <td>The domain name being searched. <b>Note</b> that .com, .net, etc. are automatically appended to the query.</td>
           </tr>
           <tr>
             <td><code>serial</code></td>
@@ -253,20 +295,31 @@ title: Domains
     </li>    
     <li>
       <p>Sample Request</p>
-      <code class='json'>POST https://api.badger.com/domains/search?query=badger&serial=abc123</code>
+      <code class='json'>POST https://api.badger.com/domains/search?query=badger1</code>
     </li>
     <li>
       <p>Sample Response</p>
       <code class='json'>{
-  "serial": "abc123",
   "domains": [
     [
-      "badger.com",
-      false
+      "badger1.com",
+      true
     ],
     [
-      "badger.net",
-      false
+      "badger1.net",
+      true
+    ],
+    [
+      "badger1.org",
+      true
+    ],
+    [
+      "badger1.info",
+      true
+    ],
+    [
+      "badger1.me",
+      true
     ]
   ]
 }</code>
