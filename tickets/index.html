@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Badger.com API - Tickets</title>
+
+  <link href="https://d1pxv3w03ignpi.cloudfront.net/github/badger/frontend/compiled/1c44ce19af1dfe58aeddf99e8d80dc59.css" media="screen" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+  <meta name="generator" content="nanoc 3.2.3">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="wrapper" style="display: block; ">
+    <div id="header">
+      <h1 id="logo">
+        <a href="#">api.badger.com docs</a>
+      </h1>
+    </div>
+    <div id="main">
+      <div id="sidebar">
+        <form id="form-search" method="get" action="http://www.google.com/search" target="_blank">
+					<input type="hidden"  name="sitesearch" value="badger.github.com" />
+					<input type="text" id="form-search-input" name="q" value="" placeholder="Search" />
+        </form>
+        <ul id="menu">
+          <li>
+						<a href="/" >OVERVIEW</a>
+						<ul >
+	          	<li class="website"><a href="/summary/" >API USAGE</a></li>
+						</ul>
+					</li>
+          <li>
+						<a href="/account/" >ACCOUNTS</a>
+						<ul class="expanded">
+              <li class="website"><a href="/billing/" >BILLING</a></li>
+		          <li class="website"><a href="/tickets/" class="active">TICKETS</a></li>
+            </ul>
+					</li>
+          <li>
+						<a href="/domains/" >DOMAINS</a>
+						<ul >
+		          <li class="website"><a href="/dns/" >DNS</a></li>
+		          <li class="website"><a href="/whois/" >WHOIS</a></li>
+		          <li class="website"><a href="/email_forwarding/" >EMAIL FORWARDING</a></li>
+						</ul>
+					</li>
+        </ul>
+      </div>
+      <div id="content">
+        <div class="api-method">
+  <h1>Get All Tickets</h1>
+  <p>View the user's pending and closed tickets. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>GET /tickets</code>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='json'>GET https://api.badger.com/tickets</code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <code class='json'>{
+  "pending_tickets": [
+    { "id": 1,
+      "created_at": "2012-01-28T07:39:29Z",
+      "updated_at": "2012-01-31T07:39:29Z",
+      "status": "open",
+      "category": "Request Feature",
+      "subject": "Feature Request",
+      "content": "I want to request a new feature",
+      "person": { "name": "John Doe", "id": 1 } },
+    { "id": 2,
+      "created_at": "2011-11-28T07:39:29Z",
+      "updated_at": "2012-01-14T07:39:29Z",
+      "status": "waiting for user response",
+      "category": "Request Feature",
+      "subject": "New Tool",
+      "content": "I want to request a new feature",
+      "person": { "name": "John Doe", "id": 1 } }
+  ],
+  "closed_tickets": [
+    { "id": 3,
+      "created_at": "2011-12-28T07:39:29Z",
+      "updated_at": "2012-01-9T07:39:29Z",
+      "status": "closed",
+      "category": "Billing Inquiry",
+      "subject": "Problem with credits",
+      "content": "I have problem with purchasing credits",
+      "person": { "name": "John Doe", "id": 1 } }
+  ]
+}</code>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h1>Get Ticket Information</h1>
+  <p>Get detailed information of a ticket. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>GET /tickets/:id</code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>id</code></td>
+            <td>ID of the ticket</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>GET https://api.badger.com/tickets/1</code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <code class='json'>{
+        "id": 1,
+        "created_at": "2012-01-28T07:39:29Z",
+        "updated_at": "2012-01-31T07:39:29Z",
+        "status": "open",
+        "category": "Request Feature",
+        "subject": "Feature Request",
+        "content": "I want to request a new feature",
+        "person": { "name": "John Doe", "id": 1 } },
+        "responses": [{ "id": 2,
+                        "ticket_id": 1,
+                        "person": { "name": "Admin", "id": 3 },
+                        "response": "Can you give me more details" }
+                     ]
+  }</code>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h1>Submit a Support Ticket</h1>
+  <p>Submit a Support Ticket. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>POST /tickets</code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>category</code></td>
+            <td>Category of the ticket</td>
+          </tr>
+          <tr>
+            <td class='required'><code>subject</code></td>
+            <td>Subject of the ticket</td>
+          </tr>
+          <tr>
+            <td class='required'><code>content</code></td>
+            <td>Content of the ticket</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>POST https://api.badger.com/tickets?subject=Request&category=Others&content=content</code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <code class='json'>{
+  "message": "Ticket created"
+}</code>
+    </li>
+  </ul>
+</div>
+
+<div class="api-method">
+  <h1>Reply To A Ticket</h1>
+  <p>Submit a response to a pending ticket. Requires authentication.</p>
+  <ul>
+    <li>
+      <p>Command</p>
+      <code class='terminal'>POST /tickets/:id/add_response</code>
+    </li>
+    <li>
+      <p>Parameters (required values are in <b>bold</b>)</p>
+      <table class='parameters'>
+        <tbody>
+          <tr class='table-header'>
+            <th width='35%'>Name</th>
+            <th width='65%'>Description</th>
+          </tr>
+          <tr>
+            <td class='required'><code>id</code></td>
+            <td>ID of the ticket</td>
+          </tr>
+          <tr>
+            <td class='required'><code>response</code></td>
+            <td>Response message to the ticket</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li>
+      <p>Sample Request</p>
+      <code class='terminal'>POST https://api.badger.com/tickets/1/add_response?response=response</code>
+    </li>
+    <li>
+      <p>Sample Response</p>
+      <code class='json'>{
+  "message": "Response added"
+}</code>
+    </li>
+  </ul>
+</div>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+  </div>
+</body>
+</html>

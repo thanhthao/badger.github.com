@@ -31,15 +31,17 @@
 					</li>
           <li>
 						<a href="/account/" <%='class="active"' if @item[:title] == 'Accounts'%>>ACCOUNTS</a>
-						<ul <%='class="expanded"' if ['Accounts', 'Billing'].include?(@item[:title])%>>
+						<ul <%='class="expanded"' if ['Accounts', 'Billing', 'Tickets'].include?(@item[:title])%>>
               <li class="website"><a href="/billing/" <%='class="active"' if @item[:title] == 'Billing'%>>BILLING</a></li>
+		          <li class="website"><a href="/tickets/" <%='class="active"' if @item[:title] == 'Tickets'%>>TICKETS</a></li>
             </ul>
 					</li>
           <li>
 						<a href="/domains/" <%='class="active"' if @item[:title] == 'Domains'%>>DOMAINS</a>
-						<ul <%='class="expanded"' if ['Domains', 'DNS', 'Whois'].include?(@item[:title])%>>
+						<ul <%='class="expanded"' if ['Domains', 'DNS', 'Whois', 'Email Forwarding'].include?(@item[:title])%>>
 		          <li class="website"><a href="/dns/" <%='class="active"' if @item[:title] == 'DNS'%>>DNS</a></li>
 		          <li class="website"><a href="/whois/" <%='class="active"' if @item[:title] == 'Whois'%>>WHOIS</a></li>
+		          <li class="website"><a href="/email_forwarding/" <%='class="active"' if @item[:title] == 'Email Forwarding'%>>EMAIL FORWARDING</a></li>
 						</ul>
 					</li>
         </ul>
